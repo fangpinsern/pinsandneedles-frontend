@@ -1,0 +1,60 @@
+.contactUs {
+  margin-bottom: 50px;
+}
+
+.contactHeader {
+  text-align: center;
+  margin: 50px;
+  width: auto;
+  padding: 40px;
+  background-color: darkorange;
+}
+
+.contactHeader h1 {
+  font-size: 3em;
+}
+
+.contactUs .contactUsLeft {
+  float: none;
+  margin-bottom: 50px;
+  text-align: center;
+}
+
+.contactUs .contactUsLeft a:link,
+.contactUs .contactUsLeft a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+.contactUs .contactUsLeft a:hover,
+.contactUs .contactUsLeft a:active {
+  color: #D3D3D3;
+}
+
+.contactUs .contactUsRight {
+  float: none;
+  margin-bottom: 50px;
+}
+
+@media (min-width: 768px) {
+  .contactHeader {
+    text-align: center;
+    margin: 100px 100px 50px 100px;
+    width: auto;
+    padding: 40px;
+    background-color: darkorange;
+  }
+
+  .contactUs .contactUsLeft {
+    float: left;
+    width: 50%;
+    margin-bottom: 50px;
+    text-align: center;
+  }
+
+  .contactUs .contactUsRight {
+    float: left;
+    width: 50%;
+    margin-bottom: 50px;
+  }
+}
