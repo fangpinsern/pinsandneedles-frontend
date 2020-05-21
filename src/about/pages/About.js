@@ -12,7 +12,7 @@ function About() {
       <div className="aboutMain">
         <div className="aboutMainLeft">
           <Card className="aboutMainLeftCard">
-            <img src={image1} alt="Picture of myself" />
+            <img src={image1} alt="myself" />
           </Card>
         </div>
         <div className="aboutMainRight">

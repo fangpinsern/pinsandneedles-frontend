@@ -18,7 +18,7 @@ function Home() {
             src={image1}
             title="Latest Projects"
             description="If you are interested, you could have a look at what I am working on recently!"
-            link="/"
+            link="/projects"
           />
         </div>
         <div className="homeMainCenter">
@@ -37,7 +37,7 @@ function Home() {
             description="If you are interested, please hire me"
             link={image1}
             download={true}
-            newTab={true}
+            newTab={"true"}
           />
         </div>
       </div>
