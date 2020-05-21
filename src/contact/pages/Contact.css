@@ -1,5 +1,5 @@
 .contactUs {
-  margin-bottom: 50px;
+  margin-bottom: 0px;
 }
 
 .contactHeader {
@@ -18,6 +18,7 @@
   float: none;
   margin-bottom: 50px;
   text-align: center;
+  justify-content: center
 }
 
 .contactUs .contactUsLeft a:link,
@@ -36,10 +37,16 @@
   margin-bottom: 50px;
 }
 
+.contactInfo {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  margin: 1rem;
+}
+
 @media (min-width: 768px) {
   .contactHeader {
     text-align: center;
-    margin: 100px 100px 50px 100px;
+    /* margin: 100px 100px 50px 100px; */
     width: auto;
     padding: 40px;
     background-color: darkorange;
@@ -50,11 +57,19 @@
     width: 50%;
     margin-bottom: 50px;
     text-align: center;
+    
   }
 
   .contactUs .contactUsRight {
     float: left;
     width: 50%;
     margin-bottom: 50px;
+  }
+
+  .contactInfo {
+    padding-top: 7.5rem;
+    padding-bottom: 7.5rem;
+    margin: 0rem;
+    margin-left: 2rem;
   }
 }

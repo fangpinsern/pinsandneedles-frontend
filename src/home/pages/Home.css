@@ -1,0 +1,64 @@
+.homeHeader {
+  background-image: url("../../images/waterfall.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  color: white;
+  margin-bottom: 2em;
+}
+
+.homeMain {
+  display: block;
+  padding: 1rem;
+}
+
+.homeMain .homeMainLeft {
+  float: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.homeMain .homeMainCenter {
+  float: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+.homeMain .homeMainRight {
+  float: none;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .homeMain {
+    display: block;
+  }
+
+  .homeMain .homeMainLeft {
+    float: left;
+    width: 30%;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-left: 3%;
+  }
+
+  .homeMain .homeMainCenter {
+    float: left;
+    width: 30%;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-left: 2%;
+    margin-right: 2%;
+  }
+  .homeMain .homeMainRight {
+    float: right;
+    width: 30%;
+    margin-bottom: 50px;
+    text-align: center;
+    margin-right: 3%;
+  }
+}
