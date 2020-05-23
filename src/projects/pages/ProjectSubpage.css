@@ -1,0 +1,34 @@
+.projectSubPageHeader{
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+    text-align: center;
+    color: black;
+}
+.projectSubPageHeader img {
+    width: 100%;
+    height: 20rem;
+    object-fit: cover;
+}
+
+.projectSubPageMain {
+    text-align: justify;
+    overflow-wrap: break-word;
+    padding: 0 5rem;
+}
+
+.projectSubPageHeaderError {
+    text-align: center;
+    background-color:darkorange;
+    margin: 3rem;
+    padding: 3rem;
+    margin-top: 5rem;
+}
+
+.projectSubPageMain-code {
+    text-align: justify;
+    padding: 1rem;
+    margin: 1rem;
+    background-color: lightgray;
+    font-family: "Lucida Console", Courier, monospace;
+}

@@ -14,6 +14,7 @@ import Contact from "./contact/pages/Contact";
 import MainNavigation from "./shared/Navigation/MainNavigation";
 import ProjectMainPage from "./projects/pages/ProjectMainPage";
 import ProjectSubPage from "./projects/pages/ProjectSubPage";
+import ProjectInputPage from "./projects/pages/ProjectInputPage";
 
 function App() {
   return (
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route path="/projects" exact>
             <ProjectMainPage />
+          </Route>
+          <Route path="/projects/newinput" exact>
+            <ProjectInputPage />
           </Route>
           <Route path="/projects/:pid" exact>
             <ProjectSubPage />

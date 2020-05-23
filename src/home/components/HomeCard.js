@@ -14,13 +14,13 @@ import Card from "../../shared/UIElements/Card";
 function HomeCard(props) {
   return (
     <div className="cardLink">
-      <a
-        href={props.link}
-        target={"_blank" && props.newTab}
-        rel="noopener noreferrer"
-        download={props.download}
-      >
-        <Card className="homeCard">
+      <Card className="homeCard">
+        <a
+          href={props.link}
+          target={"_blank" && props.newTab}
+          rel="noopener noreferrer"
+          download={props.download}
+        >
           <div className="homeCardTop">
             <img src={props.src} alt="There is suppose to be something here" />
             <div className="wordInImage">{props.title}</div>
@@ -28,8 +28,8 @@ function HomeCard(props) {
           <div className="homeCardBottom">
             <p>{props.description}</p>
           </div>
-        </Card>
-      </a>
+        </a>
+      </Card>
     </div>
   );
 }
