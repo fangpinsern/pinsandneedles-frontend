@@ -1,15 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Input from "../../shared/FormElements/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hooks";
 import Button from "../../shared/FormElements/Button";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
-import { Redirect } from "react-router-dom";
+import { Redirect, useParams } from "react-router-dom";
 
-// import { DumbProj } from "../data/projectData";
-
-function ProjectInputPage(props) {
+function ProjectUpdatePage(props) {
+  const pid = useParams().pid;
   let projectInputForm = {
     title: {
       type: "string",
@@ -33,41 +32,98 @@ function ProjectInputPage(props) {
     },
   };
 
-  const [formState, inputHandler] = useForm(projectInputForm, false);
+  const [formState, inputHandler, setFormData] = useForm(
+    projectInputForm,
+    false
+  );
   const [isLoading, setIsLoading] = useState(false);
+  const [projectData, setProjectData] = useState();
   const [error, setError] = useState();
   const [submitted, setSubmitted] = useState(false);
   const [resId, setResId] = useState("");
 
-  const parseFullOutline = (words) => {
-    // words bettwwn /p/ and /.p/ is string
-    // words between /c/ and /.c/ is code
-    const change = words.split("\n");
-    let count = 0;
-    const final = change.map((something) => {
-      var typeCode = something.substring(0, 3);
-      console.log(typeCode);
-      let value;
-      let type;
-      if (typeCode === "/p/") {
-        // its of type string
-        value = something.match("/p/(.*)/.p/");
-        type = "string";
-      } else if (typeCode === "/c/") {
-        // its of type code
-        value = something.match("/c/(.*)/.c/");
-        type = "code";
-      } else {
-        // wrong formatting
-        value = "";
-        // type = "";
-      }
-      count = count + 1;
-      return { key: String(count), type: type, value: value[1], raw:value[0]};
+  // get existing project by pid
+
+  const parseOutlineToString = (arr) => {
+    var s = "";
+    arr.forEach((element) => {
+      s = s + element.raw + "\n";
     });
-    console.log(final);
-    return final;
+    return s;
   };
+  useEffect(() => {
+    const sendReq = async () => {
+      setIsLoading(true);
+      try {
+        const res = await fetch("http://localhost:3002/api/projects/" + pid);
+        const resData = await res.json();
+        if (!res.ok) {
+          throw new Error(resData.msg);
+        }
+        setProjectData(resData);
+        console.log(resData);
+        setFormData({
+          title: {
+            type: "string",
+            value: resData.project.title,
+            isValid: true,
+          },
+          imageUrl: {
+            type: "image",
+            value: resData.project.imageUrl,
+            isValid: true,
+          },
+          description: {
+            type: "string",
+            value: resData.project.description,
+            isValid: true,
+          },
+          fullProjectOutline: {
+            type: "string",
+            value: parseOutlineToString(resData.project.fullProjectOutline),
+            isValid: true,
+          },
+        });
+        setIsLoading(false);
+      } catch (err) {
+        console.log(err);
+        setIsLoading(false);
+        setError(err);
+      }
+    };
+    sendReq();
+  }, [pid, setFormData]);
+
+    const parseFullOutline = (words) => {
+      // words bettwwn /p/ and /.p/ is string
+      // words between /c/ and /.c/ is code
+      const change = words.split("\n");
+      let count = 0;
+
+      const final = change.map((something) => {
+        var typeCode = something.substring(0, 3);
+        console.log(typeCode);
+        let value;
+        let type;
+        if (typeCode === "/p/") {
+          // its of type string
+          value = something.match("/p/(.*)/.p/");
+          type = "string";
+        } else if (typeCode === "/c/") {
+          // its of type code
+          value = something.match("/c/(.*)/.c/");
+          type = "code";
+        } else {
+          // wrong formatting
+          value = "";
+          // type = "";
+        }
+        count = count + 1;
+        return { key: String(count), type: type, value: value[1], raw: value[0] };
+      });
+      console.log(final);
+      return final;
+    };
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
@@ -79,8 +135,8 @@ function ProjectInputPage(props) {
     const fullOutlineParsed = parseFullOutline(fullOutlineRaw);
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:3002/api/projects", {
-        method: "POST",
+      const response = await fetch("http://localhost:3002/api/projects/" + pid, {
+        method: "PATCH",
         headers: {
           "Content-Type": "application/json",
         },
@@ -115,6 +171,9 @@ function ProjectInputPage(props) {
     setError(null);
   };
 
+  if (isLoading) {
+    return <LoadingSpinner asOverlay />;
+  }
   if (submitted) {
     return (
       <React.Fragment>
@@ -185,4 +244,4 @@ function ProjectInputPage(props) {
   );
 }
 
-export default ProjectInputPage;
+export default ProjectUpdatePage;

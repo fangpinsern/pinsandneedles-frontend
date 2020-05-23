@@ -40,7 +40,7 @@ function ProjectMainPage() {
       <ErrorModal error={error} onClear={errorHandler} />
       {isLoading && (
         <div className="center">
-          <LoadingSpinner />
+          <LoadingSpinner asOverlay />
         </div>
       )}
       <div className="homeHeader">

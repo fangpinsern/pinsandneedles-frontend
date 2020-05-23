@@ -15,6 +15,7 @@ import MainNavigation from "./shared/Navigation/MainNavigation";
 import ProjectMainPage from "./projects/pages/ProjectMainPage";
 import ProjectSubPage from "./projects/pages/ProjectSubPage";
 import ProjectInputPage from "./projects/pages/ProjectInputPage";
+import ProjectUpdatePage from "./projects/pages/ProjectUpdatePage";
 
 function App() {
   return (
@@ -36,6 +37,9 @@ function App() {
           </Route>
           <Route path="/projects/newinput" exact>
             <ProjectInputPage />
+          </Route>
+          <Route path="/projects/update/:pid" exact>
+            <ProjectUpdatePage />
           </Route>
           <Route path="/projects/:pid" exact>
             <ProjectSubPage />
