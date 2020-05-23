@@ -10,7 +10,7 @@ function ProjectList(props) {
   if (props.items.length === 0) {
     return (
       <div className="projectList center">
-        <Card>
+        <Card className="emptyProjectListCard">
           <h2>No Projects found</h2>
         </Card>
       </div>

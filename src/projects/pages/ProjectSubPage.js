@@ -27,8 +27,9 @@ function ProjectSubPage(props) {
         console.log(resData);
         setIsLoading(false);
       } catch (err) {
+        console.log(err);
         setIsLoading(false);
-        setError(err.msg);
+        setError(err);
       }
     };
     sendReq();
@@ -69,7 +70,7 @@ function ProjectSubPage(props) {
   } else {
     return (
       <div className="projectSubPageHeaderError">
-        <h1>{error}</h1>
+        <h1>{error.message}</h1>
       </div>
     );
   }

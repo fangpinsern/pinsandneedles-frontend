@@ -38,12 +38,32 @@ function ProjectInputPage(props) {
   const [error, setError] = useState();
   const [submitted, setSubmitted] = useState(false);
   const [resId, setResId] = useState("");
+
   const parseFullOutline = (words) => {
+    // words bettwwn /p/ and /.p/ is string
+    // words between /c/ and /.c/ is code
     const change = words.split("\n");
     let count = 0;
     const final = change.map((something) => {
+      var typeCode = something.substring(0, 3);
+      console.log(typeCode);
+      let value;
+      let type;
+      if (typeCode === "/p/") {
+        // its of type string
+        value = something.match("/p/(.*)/.p/");
+        type = "string";
+      } else if (typeCode === "/c/") {
+        // its of type code
+        value = something.match("/c/(.*)/.c/");
+        type = "code";
+      } else {
+        // wrong formatting
+        value = "";
+        // type = "";
+      }
       count = count + 1;
-      return { key: String(count), type: "string", value: something };
+      return { key: String(count), type: type, value: value[1] };
     });
     console.log(final);
     return final;
@@ -166,16 +186,3 @@ function ProjectInputPage(props) {
 }
 
 export default ProjectInputPage;
-
-// props for both
-// initialValue - initial value in the form
-// initialValid - initial validity of the intial value in the form
-// id - id of the form input
-// label - label for the input
-// onInput(id, value, isValid) - Function pointer for when an input has occured
-// validators - list of validators from util/validators
-// element - type of input (whether is it textArea or input)
-// type - text or email or other stuff
-// placeholder - placeholder for that input
-// rows - if it is a text area
-// errorText - text shown when validators fail
