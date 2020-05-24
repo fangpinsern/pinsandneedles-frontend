@@ -46,8 +46,13 @@ function ProjectUpdatePage(props) {
 
   const parseOutlineToString = (arr) => {
     var s = "";
-    arr.forEach((element) => {
-      s = s + element.raw + "\n";
+    const arrLen = arr.length;
+    arr.forEach((element, i) => {
+      if (i >= arrLen - 1) {
+        s = s + element.raw;
+      } else {
+        s = s + element.raw + "\n";
+      }
     });
     return s;
   };
@@ -61,7 +66,7 @@ function ProjectUpdatePage(props) {
           throw new Error(resData.msg);
         }
         setProjectData(resData);
-        console.log(resData);
+        // console.log(resData);
         setFormData({
           title: {
             type: "string",
@@ -94,36 +99,41 @@ function ProjectUpdatePage(props) {
     sendReq();
   }, [pid, setFormData]);
 
-    const parseFullOutline = (words) => {
-      // words bettwwn /p/ and /.p/ is string
-      // words between /c/ and /.c/ is code
-      const change = words.split("\n");
-      let count = 0;
+  const parseFullOutline = (words) => {
+    // words bettwwn /p/ and /.p/ is string
+    // words between /c/ and /.c/ is code
+    const change = words.split("\n");
+    let count = 0;
 
-      const final = change.map((something) => {
-        var typeCode = something.substring(0, 3);
-        console.log(typeCode);
-        let value;
-        let type;
-        if (typeCode === "/p/") {
-          // its of type string
-          value = something.match("/p/(.*)/.p/");
-          type = "string";
-        } else if (typeCode === "/c/") {
-          // its of type code
-          value = something.match("/c/(.*)/.c/");
-          type = "code";
-        } else {
-          // wrong formatting
-          value = "";
-          // type = "";
-        }
-        count = count + 1;
-        return { key: String(count), type: type, value: value[1], raw: value[0] };
-      });
-      console.log(final);
-      return final;
-    };
+    const final = change.map((something) => {
+      var typeCode = something.substring(0, 3);
+      // console.log(typeCode);
+      let value;
+      let type;
+      if (typeCode === "/p/") {
+        // its of type string
+        value = something.match("/p/(.*)/.p/");
+        type = "string";
+      } else if (typeCode === "/c/") {
+        // its of type code
+        value = something.match("/c/(.*)/.c/");
+        type = "code";
+      } else if (typeCode === "/i/") {
+        // this is of type image
+        value = something.match("/i/(.*)/.i/");
+        type = "image";
+        // console.log(value[1]);
+      } else {
+        // wrong formatting
+        value = "";
+        // type = "";
+      }
+      count = count + 1;
+      return { key: String(count), type: type, value: value[1], raw: value[0] };
+    });
+    console.log(projectData);
+    return final;
+  };
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
@@ -133,20 +143,26 @@ function ProjectUpdatePage(props) {
     const fullOutlineRaw = document.getElementById("fullProjectOutline").value;
 
     const fullOutlineParsed = parseFullOutline(fullOutlineRaw);
+
+    const formObj = {
+      title: title,
+      description: description,
+      imageUrl: imageUrl,
+      fullProjectOutline: fullOutlineParsed,
+    };
+    console.log(formObj);
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:3002/api/projects/" + pid, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          title: title,
-          description: description,
-          imageUrl: imageUrl,
-          fullProjectOutline: fullOutlineParsed,
-        }),
-      });
+      const response = await fetch(
+        "http://localhost:3002/api/projects/" + pid,
+        {
+          method: "PATCH",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formObj),
+        }
+      );
 
       // console.log(response.body);
 
@@ -154,7 +170,8 @@ function ProjectUpdatePage(props) {
       if (!response.ok) {
         throw new Error(responseData.msg);
       }
-      console.log(responseData);
+      console.log("Iamhere");
+      //   console.log(responseData);
       setIsLoading(false);
       setResId(responseData.project.id);
       setSubmitted(true);

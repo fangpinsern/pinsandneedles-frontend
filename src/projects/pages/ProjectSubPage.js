@@ -48,7 +48,10 @@ function ProjectSubPage(props) {
         {!isLoading && projectData && (
           <div>
             <div className="projectSubPageHeader">
-              <img src={projectData.project.imageUrl} alt={projectData.project.title} />
+              <img
+                src={projectData.project.imageUrl}
+                alt={projectData.project.title}
+              />
               <h1>{projectData.project.title}</h1>
             </div>
             <div className="projectSubPageMain">
@@ -58,7 +61,11 @@ function ProjectSubPage(props) {
                     key={outline.key}
                     className={`projectSubPageMain-${outline.type}`}
                   >
-                    <p>{outline.value}</p>
+                    {outline.type === "image" ? (
+                      <img src={outline.value} alt={outline.value} />
+                    ) : (
+                      <p>{outline.value}</p>
+                    )}
                   </div>
                 );
               })}
