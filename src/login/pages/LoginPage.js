@@ -46,7 +46,8 @@ function LoginPage() {
         throw new Error(resData.msg);
       }
       setIsLoading(false);
-      auth.login();
+      auth.login(resData.userId, resData.token);
+      console.log(resData.token);
     } catch (err) {
       setIsLoading(false);
       setError(err.message);

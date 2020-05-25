@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Input from "../../shared/FormElements/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hooks";
@@ -6,8 +6,10 @@ import Button from "../../shared/FormElements/Button";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
 import { Redirect, useParams } from "react-router-dom";
+import { AuthContext } from "../../shared/context/auth-context";
 
 function ProjectUpdatePage(props) {
+  const auth = useContext(AuthContext);
   const pid = useParams().pid;
   let projectInputForm = {
     title: {
@@ -159,6 +161,7 @@ function ProjectUpdatePage(props) {
           method: "PATCH",
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
           },
           body: JSON.stringify(formObj),
         }

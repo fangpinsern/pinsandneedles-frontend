@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import "./App.css";
 
 import {
@@ -19,18 +19,60 @@ import ProjectUpdatePage from "./projects/pages/ProjectUpdatePage";
 import LoginPage from "./login/pages/LoginPage";
 import { AuthContext } from "./shared/context/auth-context";
 
-function App() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+let logoutTimer;
 
-  const login = useCallback(() => {
-    setIsLoggedIn(true);
+function App() {
+  // const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [userId, setUserId] = useState(false);
+  const [token, setToken] = useState(false);
+  const [tokenExpireDate, setTokenExpireDate] = useState();
+
+  const login = useCallback((userId, token, expireDate) => {
+    // setIsLoggedIn(true);
+    setToken(token);
+    setUserId(userId);
+    const tokenExpireDate =
+      expireDate || new Date(new Date().getTime() + 1000 * 60 * 60);
+    setTokenExpireDate(tokenExpireDate);
+    localStorage.setItem(
+      "userData",
+      JSON.stringify({
+        userId: userId,
+        token: token,
+        expire: tokenExpireDate.toISOString(),
+      })
+    );
   }, []);
   const logout = useCallback(() => {
-    setIsLoggedIn(false);
+    // setIsLoggedIn(false);
+    setToken(null);
+    setTokenExpireDate(null);
+    setUserId(null);
   }, []);
 
+  useEffect(() => {
+    if (token && tokenExpireDate) {
+      const remainingTime = tokenExpireDate.getTime() - new Date().getTime();
+      logoutTimer = setTimeout(logout, remainingTime);
+    } else {
+      clearTimeout(logoutTimer);
+    }
+  }, [token, logout, tokenExpireDate]);
+
+  useEffect(() => {
+    const storedData = JSON.parse(localStorage.getItem("userData"));
+    if (
+      storedData &&
+      storedData.token &&
+      new Date(storedData.expire) > new Date()
+    ) {
+      // console.log("I am here");
+      login(storedData.userId, storedData.token, new Date(storedData.expire));
+    }
+  }, [login]);
+
   let routes;
-  if (isLoggedIn) {
+  if (token) {
     routes = (
       <main>
         <Switch>
@@ -76,10 +118,10 @@ function App() {
             <ProjectMainPage />
           </Route>
           <Route path="/projects/newinput" exact>
-            <Redirect to="/login" />
+            <LoginPage />
           </Route>
           <Route path="/projects/update/:pid" exact>
-            <Redirect to="/login" />
+            <LoginPage />
           </Route>
           <Route path="/projects/:pid" exact>
             <ProjectSubPage />
@@ -87,7 +129,7 @@ function App() {
           <Route path="/login" exact>
             <LoginPage />
           </Route>
-          <Redirect to="/" />
+          <Redirect to="/login" />
         </Switch>
       </main>
     );
@@ -95,7 +137,13 @@ function App() {
 
   return (
     <AuthContext.Provider
-      value={{ isLoggedIn: isLoggedIn, login: login, logout: logout }}
+      value={{
+        isLoggedIn: !!token,
+        token: token,
+        userId: userId,
+        login: login,
+        logout: logout,
+      }}
     >
       <Router>
         <MainNavigation />

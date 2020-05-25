@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import Input from "../../shared/FormElements/Input";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { useForm } from "../../shared/hooks/form-hooks";
@@ -6,10 +6,13 @@ import Button from "../../shared/FormElements/Button";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
 import { Redirect } from "react-router-dom";
+import { AuthContext } from "../../shared/context/auth-context";
 
 // import { DumbProj } from "../data/projectData";
 
 function ProjectInputPage(props) {
+  const auth = useContext(AuthContext);
+
   let projectInputForm = {
     title: {
       type: "string",
@@ -63,7 +66,7 @@ function ProjectInputPage(props) {
         // type = "";
       }
       count = count + 1;
-      return { key: String(count), type: type, value: value[1], raw:value[0]};
+      return { key: String(count), type: type, value: value[1], raw: value[0] };
     });
     console.log(final);
     return final;
@@ -83,6 +86,7 @@ function ProjectInputPage(props) {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          "Authorization": "Bearer " + auth.token,
         },
         body: JSON.stringify({
           title: title,
