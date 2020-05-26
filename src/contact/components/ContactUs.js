@@ -41,6 +41,7 @@ function ContactUs() {
       method: "POST",
       url: "http://localhost:3002/send",
       data: {
+        type: "contact",
         name: name,
         email: email,
         question: question,

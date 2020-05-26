@@ -21,6 +21,9 @@ function NavLinks(props) {
         <NavLink to="/projects">Projects</NavLink>
       </li>
       <li>
+        <NavLink to="/products">Products</NavLink>
+      </li>
+      <li>
         <NavLink to="/contact">Contact</NavLink>
       </li>
       {auth.isLoggedIn && <li>
