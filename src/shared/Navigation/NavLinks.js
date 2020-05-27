@@ -29,6 +29,9 @@ function NavLinks(props) {
       {auth.isLoggedIn && <li>
         <NavLink to="/projects/newinput">New</NavLink>
       </li>}
+      {auth.isLoggedIn && <li>
+        <NavLink to="/products/inventory">Inventory</NavLink>
+      </li>}
     </ul>
   );
 }

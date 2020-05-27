@@ -21,6 +21,8 @@ import { AuthContext } from "./shared/context/auth-context";
 import ProductsMainPage from "./sellSecondhand/pages/ProductsMainPage";
 import ProductsSubPage from "./sellSecondhand/pages/ProductsSubPage";
 import ProductsPurchasePage from "./sellSecondhand/pages/ProductsPurchasePage";
+import ProductsInputPage from "./sellSecondhand/pages/ProductsInputPage";
+import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
 
 let logoutTimer;
 
@@ -103,6 +105,15 @@ function App() {
           <Route path="/products" exact>
             <ProductsMainPage />
           </Route>
+          <Route path="/products/purchase/:pid" exact>
+            <ProductsPurchasePage />
+          </Route>
+          <Route path="/products/newinput" exact>
+            <ProductsInputPage />
+          </Route>
+          <Route path="/products/inventory" exact>
+            <ProductsInventory />
+          </Route>
           <Route path="/products/:pid" exact>
             <ProductsSubPage />
           </Route>
@@ -143,6 +154,12 @@ function App() {
           </Route>
           <Route path="/products/purchase/:pid" exact>
             <ProductsPurchasePage />
+          </Route>
+          <Route path="/products/newinput" exact>
+            <LoginPage/>
+          </Route>
+          <Route path="/products/inventory" exact>
+            <LoginPage />
           </Route>
           <Route path="/products/:pid" exact>
             <ProductsSubPage />

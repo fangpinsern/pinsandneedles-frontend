@@ -1,13 +1,10 @@
-import React, { useEffect, useState } from "react";
-
+import React, { useState, useEffect } from "react";
 // import { DumbProd } from "../data/productData";
-
-import "./ProductsMainPage.css";
-import ProductList from "../components/ProductList";
+import ProductInventoryList from "../components/ProductInventoryList";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
 
-function ProductsMainPage() {
+function ProductsInventory() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const [loadedProduct, setLoadedProduct] = useState();
@@ -42,15 +39,11 @@ function ProductsMainPage() {
           <LoadingSpinner asOverlay />
         </div>
       )}
-      <div className="homeHeader">
-        <h1>Products</h1>
-      </div>
       {!isLoading && loadedProduct && (
-        <div className="projectRow">
-          <ProductList items={loadedProduct.products} />
-        </div>
+        <ProductInventoryList items={loadedProduct.products} />
       )}
     </React.Fragment>
   );
 }
-export default ProductsMainPage;
+
+export default ProductsInventory;

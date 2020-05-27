@@ -18,16 +18,18 @@
 }
 
 .productsSubPageMain-left {
-    float: left;
-    width: 48%;
+    float: none;
     text-align: justify;
     overflow-wrap: break-word;
     margin: 0 1%;
 }
 
+.productsSubPageMain-left img {
+    width: 100%;
+}
+
 .productsSubPageMain-right {
-    float: right;
-    width: 48%;
+    float: none;
     text-align: justify;
     overflow-wrap: break-word;
     margin: 0 1%;
@@ -47,3 +49,27 @@
     background-color: lightgray;
     font-family: "Lucida Console", Courier, monospace;
 }
+
+@media (min-width: 768px) {
+  
+    .productsSubPageMain-left {
+        float: left;
+        width: 48%;
+        text-align: justify;
+        overflow-wrap: break-word;
+        margin: 0 1%;
+    }
+    
+    .productsSubPageMain-left img {
+        width: 100%;
+    }
+    
+    .productsSubPageMain-right {
+        float: right;
+        width: 48%;
+        text-align: justify;
+        overflow-wrap: break-word;
+        margin: 0 1%;
+    }
+  }
+  

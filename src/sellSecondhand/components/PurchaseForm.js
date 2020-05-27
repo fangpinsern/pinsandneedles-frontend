@@ -58,6 +58,16 @@ function PurchaseForm(props) {
     const postalCode = document.getElementById("postalCode").value;
     const additionalNotes = document.getElementById("additionalNotes").value;
 
+    const buyerInfo = {
+      name: name,
+      email: email,
+      contactNumber: contactNumber,
+      address: address,
+      postalCode: postalCode,
+      additionalNotes: additionalNotes,
+      productName: productName,
+    };
+
     axois({
       method: "POST",
       url: "http://localhost:3002/send",
@@ -75,13 +85,15 @@ function PurchaseForm(props) {
     }).then((res) => {
       if (res.data.msg === "success") {
         // alert("Thank you for your purchase!");
-        props.successHandler();
+        props.successHandler(buyerInfo);
       } else if (res.data.msg === "fail") {
         alert(
           "Question failed to send due to some technical error. Please try again"
         );
       }
     });
+
+    // props.successHandler(buyerInfo);
   };
 
   return (

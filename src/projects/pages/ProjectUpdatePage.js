@@ -173,7 +173,7 @@ function ProjectUpdatePage(props) {
       if (!response.ok) {
         throw new Error(responseData.msg);
       }
-      console.log("Iamhere");
+      // console.log("Iamhere");
       //   console.log(responseData);
       setIsLoading(false);
       setResId(responseData.project.id);

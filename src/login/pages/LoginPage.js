@@ -47,7 +47,7 @@ function LoginPage() {
       }
       setIsLoading(false);
       auth.login(resData.userId, resData.token);
-      console.log(resData.token);
+      // console.log(resData.token);
     } catch (err) {
       setIsLoading(false);
       setError(err.message);
