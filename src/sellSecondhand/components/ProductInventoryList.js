@@ -1,13 +1,14 @@
 import React from "react";
 import ProductInventorySubList from "./ProductInventorySubList";
 
-import "./ProductInventoryList.css"
+import "./ProductInventoryList.css";
+// import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 // props
 // items
 
 function ProductInventoryList(props) {
-  
+  // const [isLoading, setIsLoading] = useState(false);
   const reserved = props.items.filter(
     (product) => product.status === "reserved"
   );

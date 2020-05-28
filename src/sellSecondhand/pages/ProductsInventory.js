@@ -40,7 +40,7 @@ function ProductsInventory() {
         </div>
       )}
       {!isLoading && loadedProduct && (
-        <ProductInventoryList items={loadedProduct.products} />
+        <ProductInventoryList items={loadedProduct.products}/>
       )}
     </React.Fragment>
   );

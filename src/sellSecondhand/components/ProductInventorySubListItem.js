@@ -37,6 +37,7 @@ function ProductInventorySubListItem(props) {
         throw new Error(responseData.msg);
       }
       setIsLoading(false);
+      window.location.reload(false);
     } catch (err) {
       console.log(err);
       setIsLoading(false);

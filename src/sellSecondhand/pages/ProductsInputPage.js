@@ -54,25 +54,35 @@ function ProductsInputPage() {
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
-    const newProduct = {
-      name: formState.inputs.name.value,
-      description: formState.inputs.description.value,
-      imageUrl: formState.inputs.imageUrl.value,
-      image: formState.inputs.image.value,
-      fullProductOutline: formState.inputs.fullProductOutline.value,
-      price: formState.inputs.price.value,
-      status: "avail",
-    };
+    // const newProduct = {
+    //   name: formState.inputs.name.value,
+    //   description: formState.inputs.description.value,
+    //   imageUrl: formState.inputs.imageUrl.value,
+    //   image: formState.inputs.image.value,
+    //   fullProductOutline: formState.inputs.fullProductOutline.value,
+    //   price: formState.inputs.price.value,
+    //   status: "avail",
+    // };
 
     try {
       setIsLoading(true);
+      const formData = new FormData();
+      formData.append("name", formState.inputs.name.value);
+      formData.append("description", formState.inputs.description.value);
+      formData.append("imageUrl", formState.inputs.imageUrl.value);
+      formData.append(
+        "fullProductOutline",
+        formState.inputs.fullProductOutline.value
+      );
+      formData.append("price", formState.inputs.price.value);
+      formData.append("status", "avail");
+      formData.append("image", formState.inputs.image.value);
       const response = await fetch("http://localhost:3002/api/products", {
         method: "POST",
+        body: formData,
         headers: {
-          "Content-Type": "application/json",
           Authorization: "Bearer " + auth.token,
         },
-        body: JSON.stringify(newProduct),
       });
 
       const responseData = await response.json();

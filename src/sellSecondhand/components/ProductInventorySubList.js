@@ -28,6 +28,7 @@ function ProductInventorySubList(props) {
                 key={product.id}
                 id={product.id}
                 name={product.name}
+                reservedBy={product.reservedBy}
               />
             );
           })}

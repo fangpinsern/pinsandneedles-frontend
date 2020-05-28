@@ -51,6 +51,7 @@ function PurchaseForm(props) {
   // };
   const contactFormSubmitHandler = (event) => {
     event.preventDefault();
+    props.loadHandler();
     const name = document.getElementById("name").value;
     const email = document.getElementById("email").value;
     const contactNumber = document.getElementById("contactNumber").value;

@@ -68,7 +68,10 @@ function ProductsSubPage() {
           </div>
           <div className="productsSubPageMain">
             <div className="productsSubPageMain-left">
-              <img src={productData.imageUrl} alt={productData.name} />
+              <img
+                src={"http://localhost:3002/" + productData.imageUrl}
+                alt={productData.name}
+              />
             </div>
             <div className="productsSubPageMain-right">
               {parse(productData.fullProductOutline)}

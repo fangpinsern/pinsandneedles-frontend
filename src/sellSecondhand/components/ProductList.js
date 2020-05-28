@@ -14,7 +14,7 @@ function ProductList(props) {
             name={product.name}
             description={product.description}
             price={product.price}
-            src={product.imageUrl}
+            src={"http://localhost:3002/"+product.imageUrl}
             available={product.status}
           />
         );
