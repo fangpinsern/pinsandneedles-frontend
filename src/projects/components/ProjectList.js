@@ -1,11 +1,13 @@
 import React from "react";
-import Card from "../../shared/UIElements/Card";
-import ProjectItem from "./ProjectItem"
 
-import "./ProjectList.css"
+import Card from "../../shared/UIElements/Card";
+import ProjectItem from "./ProjectItem";
+
+import "./ProjectList.css";
 
 //props
 // items - list of items in the list
+
 function ProjectList(props) {
   if (props.items.length === 0) {
     return (
@@ -20,21 +22,18 @@ function ProjectList(props) {
   return (
     <ul className="projectList">
       {props.items.map((project) => {
-        return <ProjectItem 
+        return (
+          <ProjectItem
             key={project.id}
             id={project.id}
             name={project.title}
             src={project.imageUrl}
             description={project.description}
-        />;
+          />
+        );
       })}
     </ul>
   );
 }
 
 export default ProjectList;
-
-// id
-// src
-// name
-// description

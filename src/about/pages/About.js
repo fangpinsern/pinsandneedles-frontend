@@ -1,8 +1,10 @@
 import React from "react";
 
-import "./About.css";
 import image1 from "../../images/portfolioImage.jpg";
 import Card from "../../shared/UIElements/Card";
+
+import "./About.css";
+
 function About() {
   return (
     <React.Fragment>
@@ -16,23 +18,38 @@ function About() {
           </Card>
         </div>
         <div className="aboutMainRight">
+          <h3>General Information</h3>
+          <p>Name: Pin Sern</p>
+          <p>Occupation: Student</p>
+          <p>School: National University Of Singapore (NUS) Class of 2022</p>
+          <p>Course: Computer Science with Second Major in Statistics</p>
+          <p>Specialization: Artificial Intelligence and Computer Security</p>
+          <p>Description: </p>
           <p>
-            Hello, my name is Pin Sern. Currently studying Computer Science at
-            the National University of Singapore (NUS)
+            I believe that time is precious and should be used wisely. Hence, I
+            would always find something useful to do when I am not busy with
+            school, be it learning a new skill or starting a personal project.
           </p>
           <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam sed
-            sem eu nisl ultrices sodales tincidunt at sapien. Aenean molestie
-            eros id velit maximus, at tincidunt nisl imperdiet. Vivamus ut enim
-            accumsan, lobortis nisi in, maximus nisi. Mauris nunc ante, mollis
-            sit amet efficitur nec, suscipit eget turpis. Sed tincidunt et dui
-            sit amet ullamcorper. Nam a consequat lorem, quis dictum magna. Cras
-            posuere arcu vitae lorem porta, sed mattis erat posuere. Maecenas
-            vel elit semper, volutpat massa vel, accumsan diam. Duis eu
-            tristique purus. Cras id pellentesque nibh. Sed non suscipit orci.
-            Vivamus facilisis nulla quis neque maximus pulvinar. Cras et luctus
-            urna, ac ornare metus. Fusce in tortor ac eros pellentesque
-            molestie.
+            I enjoy building things whether is it software or hardware. This
+            drove me to build this website which documents the projects I have
+            built and various skillsets I have gained along the way.
+          </p>
+          <p>
+            I plan to use this platform to build meaningful and useful
+            applications in my free time. (which I have plenty due to the
+            circuit breaker)
+          </p>
+          <p>
+            I am a team player and prefer to work in groups. Entering university
+            with no programming experience, I can relate to people who do not
+            understand code. I adapt quickly to change and always open to new
+            ideas. I handle criticism well and take it as a chance to be a
+            better version of myself.
+          </p>
+          <p>
+            Aside for programming and school work, I enjoy various activities
+            like sports, film photography as well as videography
           </p>
         </div>
       </div>

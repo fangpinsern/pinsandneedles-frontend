@@ -1,8 +1,6 @@
 import React from "react";
 import axois from "axios";
 
-import "./ContactUs.css";
-
 import { useForm } from "../../shared/hooks/form-hooks";
 import Input from "../../shared/FormElements/Input";
 import Button from "../../shared/FormElements/Button";
@@ -10,6 +8,8 @@ import {
   VALIDATOR_REQUIRE,
   VALIDATOR_EMAIL,
 } from "../../shared/util/validators";
+
+import "./ContactUs.css";
 
 function ContactUs() {
   let contactForm = {

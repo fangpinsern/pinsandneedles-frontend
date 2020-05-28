@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
-import { useForm } from "../../shared/hooks/form-hooks";
+
 import Card from "../../shared/UIElements/Card";
 import Input from "../../shared/FormElements/Input";
+import Button from "../../shared/FormElements/Button";
+import ErrorModal from "../../shared/modals/ErrorModal";
+import LoadingSpinner from "../../shared/modals/LoadingSpinner";
+
+import { useForm } from "../../shared/hooks/form-hooks";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { AuthContext } from "../../shared/context/auth-context";
 
 import "./LoginPage.css";
-import Button from "../../shared/FormElements/Button";
-import ErrorModal from "../../shared/modals/ErrorModal";
-import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 function LoginPage() {
   const auth = useContext(AuthContext);
@@ -31,16 +33,19 @@ function LoginPage() {
     event.preventDefault();
     setIsLoading(true);
     try {
-      const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/users/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formState.inputs.username.value,
-          password: formState.inputs.password.value,
-        }),
-      });
+      const res = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/api/users/login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            username: formState.inputs.username.value,
+            password: formState.inputs.password.value,
+          }),
+        }
+      );
       const resData = await res.json();
       if (!res.ok) {
         throw new Error(resData.msg);

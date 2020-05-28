@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 
 import ProjectList from "../components/ProjectList";
-import "./ProjectMainPage.css";
-
-// import { DumbProj } from "../data/projectData";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
+
+import "./ProjectMainPage.css";
 
 function ProjectMainPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -16,7 +15,9 @@ function ProjectMainPage() {
     const sendReq = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/projects");
+        const res = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "/api/projects"
+        );
         const resData = await res.json();
         if (!res.ok) {
           throw new Error(resData.msg);

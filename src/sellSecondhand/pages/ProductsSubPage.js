@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import parse from "html-react-parser";
 
-// import { DumbProd } from "../data/productData";
-
-import "./ProductsSubPage.css";
-import { useParams } from "react-router-dom";
 import PurchaseButton from "../components/PurchaseButton";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
+
+import { useParams } from "react-router-dom";
+
+import "./ProductsSubPage.css";
 
 function ProductsSubPage() {
   const pid = useParams().pid;
@@ -46,16 +46,9 @@ function ProductsSubPage() {
     );
   }
 
-  // const productData = DumbProd.find((product) => product.id === pid);
-
-  // if (!productData) {
-  //   return (
-  //     <div className="productsSubPageHeaderError">
-  //       <h1>Product not found</h1>
-  //     </div>
-  //   );
-  // }
-  !isLoading && productData && console.log(process.env.REACT_APP_BACKEND_URL + productData.imageUrl)
+  !isLoading &&
+    productData &&
+    console.log(process.env.REACT_APP_BACKEND_URL + productData.imageUrl);
   return (
     <React.Fragment>
       {isLoading && (
@@ -72,7 +65,9 @@ function ProductsSubPage() {
           <div className="productsSubPageMain">
             <div className="productsSubPageMain-left">
               <img
-                src={process.env.REACT_APP_BACKEND_URL + "/" + productData.imageUrl}
+                src={
+                  process.env.REACT_APP_BACKEND_URL + "/" + productData.imageUrl
+                }
                 alt={productData.name}
               />
             </div>

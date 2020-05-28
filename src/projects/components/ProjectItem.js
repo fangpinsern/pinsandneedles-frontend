@@ -1,8 +1,10 @@
 import React from "react";
+
 import Card from "../../shared/UIElements/Card";
+
 import { Link } from "react-router-dom";
 
-import "./ProjectItem.css"
+import "./ProjectItem.css";
 
 // props
 // id

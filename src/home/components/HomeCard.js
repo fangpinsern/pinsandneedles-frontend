@@ -1,7 +1,8 @@
 import React from "react";
 
-import "./HomeCard.css";
 import Card from "../../shared/UIElements/Card";
+
+import "./HomeCard.css";
 
 //props
 // src - image source

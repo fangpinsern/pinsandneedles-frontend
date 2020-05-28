@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from "react";
 
-// import { DumbProd } from "../data/productData";
-
-import "./ProductsMainPage.css";
 import ProductList from "../components/ProductList";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
+
+import "./ProductsMainPage.css";
 
 function ProductsMainPage() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,6 +45,11 @@ function ProductsMainPage() {
       )}
       <div className="homeHeader">
         <h1>Products</h1>
+        <p>Just click on the item you want to see more!</p>
+        <p>
+          To purchase, click on the "Buy Now" button, fill in your info and I
+          will contact you for payment
+        </p>
       </div>
       {!isLoading && loadedProduct && (
         <div className="projectRow">

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-
-// import { DumbProd } from "../data/productData";
 import { useParams } from "react-router-dom";
-import Card from "../../shared/UIElements/Card";
 
-import "./ProductsPurchasePage.css";
+import Card from "../../shared/UIElements/Card";
 import PurchaseForm from "../components/PurchaseForm";
 import SuccessPage from "../components/SuccessPage";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
+
+import "./ProductsPurchasePage.css";
 
 function ProductsPurchasePage() {
   const pid = useParams().pid;
@@ -40,8 +39,6 @@ function ProductsPurchasePage() {
     sendReq();
   }, [pid]);
 
-  // const product = DumbProd.find((product) => product.id === pid);
-
   const successHandler = async (buyerInfo) => {
     try {
       const res = await fetch(
@@ -63,8 +60,6 @@ function ProductsPurchasePage() {
       setIsLoading(false);
       setError(err.message);
     }
-    // const prodIndex = DumbProd.findIndex((product) => product.id === pid);
-    // DumbProd[prodIndex] = { ...product, status: "reserved", reservedBy:buyerInfo };
   };
 
   const loadHandler = () => {
@@ -79,45 +74,6 @@ function ProductsPurchasePage() {
     );
   }
 
-  let main;
-  if (!isLoading && product && product.status === "avail") {
-    main = (
-      <div className="purchasePage">
-        <div className="purchasePageLeft">
-          <Card className="contactInfo">
-            <h1>{product.name}</h1>
-            <img
-              src={process.env.REACT_APP_BACKEND_URL + product.imageUrl}
-              alt={product.name}
-            />
-            <p>{product.description}</p>
-            <h2>${product.price}</h2>
-          </Card>
-        </div>
-
-        <div className="purchasePageRight">
-          <PurchaseForm
-            successHandler={successHandler}
-            loadHandler={loadHandler}
-            id={pid}
-            name={product.name}
-          />
-        </div>
-      </div>
-    );
-  } else if (isLoading) {
-    main = (
-      <div className="center">
-        <LoadingSpinner asOverlay />
-      </div>
-    );
-  } else {
-    main = (
-      <h3>
-        Product is Reserved or Sold! Please have a look at our other items
-      </h3>
-    );
-  }
   return (
     <React.Fragment>
       {success && <SuccessPage />}
@@ -155,8 +111,6 @@ function ProductsPurchasePage() {
       )}
     </React.Fragment>
   );
-
-  // success ? <SuccessPage /> : main
 }
 
 export default ProductsPurchasePage;

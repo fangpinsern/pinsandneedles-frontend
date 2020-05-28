@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-// import { DumbProd } from "../data/productData";
+
 import ProductInventoryList from "../components/ProductInventoryList";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";

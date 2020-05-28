@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import parse from "html-react-parser";
 
-// import { DumbProj } from "../data/projectData";
+import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 import "./ProjectSubPage.css";
-import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 function ProjectSubPage(props) {
   const pid = useParams().pid;
@@ -14,6 +14,7 @@ function ProjectSubPage(props) {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState();
   const [projectData, setProjectData] = useState();
+
   useEffect(() => {
     const sendReq = async () => {
       setIsLoading(true);
@@ -55,20 +56,7 @@ function ProjectSubPage(props) {
               <h1>{projectData.project.title}</h1>
             </div>
             <div className="projectSubPageMain">
-              {projectData.project.fullProjectOutline.map((outline) => {
-                return (
-                  <div
-                    key={outline.key}
-                    className={`projectSubPageMain-${outline.type}`}
-                  >
-                    {outline.type === "image" ? (
-                      <img src={outline.value} alt={outline.value} />
-                    ) : (
-                      <p>{outline.value}</p>
-                    )}
-                  </div>
-                );
-              })}
+              {parse(projectData.project.fullProjectOutline)}
             </div>
           </div>
         )}

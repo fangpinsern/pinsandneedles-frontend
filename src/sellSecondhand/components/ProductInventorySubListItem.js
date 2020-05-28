@@ -1,7 +1,4 @@
 import React, { useContext, useState } from "react";
-import { AuthContext } from "../../shared/context/auth-context";
-import ErrorModal from "../../shared/modals/ErrorModal";
-import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 import {
   AccordionItem,
@@ -9,7 +6,12 @@ import {
   AccordionItemButton,
   AccordionItemPanel,
 } from "react-accessible-accordion";
+
+import ErrorModal from "../../shared/modals/ErrorModal";
+import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import Button from "../../shared/FormElements/Button";
+
+import { AuthContext } from "../../shared/context/auth-context";
 
 function ProductInventorySubListItem(props) {
   const pid = props.id;

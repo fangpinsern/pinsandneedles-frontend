@@ -1,14 +1,16 @@
 import React, { useContext, useState } from "react";
-import { useForm } from "../../shared/hooks/form-hooks";
-import Input from "../../shared/FormElements/Input";
-import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
-import Button from "../../shared/FormElements/Button";
-// import { DumbProd } from "../data/productData";
-import ImageUpload from "../../shared/FormElements/ImageUpload";
-import { AuthContext } from "../../shared/context/auth-context";
-import LoadingSpinner from "../../shared/modals/LoadingSpinner";
+
 import { Redirect } from "react-router-dom";
+
+import Input from "../../shared/FormElements/Input";
+import Button from "../../shared/FormElements/Button";
+import ImageUpload from "../../shared/FormElements/ImageUpload";
+import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
+
+import { useForm } from "../../shared/hooks/form-hooks";
+import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import { AuthContext } from "../../shared/context/auth-context";
 
 function ProductsInputPage() {
   const auth = useContext(AuthContext);
@@ -99,7 +101,7 @@ function ProductsInputPage() {
     } catch (err) {
       console.log(err);
       setIsLoading(false);
-      setError(err.message || "Something went wrong");
+      setError(err.message || "Something went wrong, please try again");
     }
     // console.log(newProduct);
   };

@@ -1,9 +1,11 @@
 import React from "react";
 
-import "./ProductItem.css";
-import Card from "../../shared/UIElements/Card";
 import { Link } from "react-router-dom";
+
+import Card from "../../shared/UIElements/Card";
 import PurchaseButton from "./PurchaseButton";
+
+import "./ProductItem.css";
 
 // props
 // id

@@ -1,9 +1,10 @@
 import React from "react";
 
-import "./Contact.css";
-
 import ContactUs from "../components/ContactUs";
 import Card from "../../shared/UIElements/Card";
+
+import "./Contact.css";
+
 function Contact() {
   return (
     <React.Fragment>

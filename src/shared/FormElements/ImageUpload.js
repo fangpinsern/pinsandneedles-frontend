@@ -1,7 +1,8 @@
 import React, { useRef, useState, useEffect } from "react";
 
-import "./ImageUpload.css";
 import Button from "./Button";
+
+import "./ImageUpload.css";
 
 // props
 // id

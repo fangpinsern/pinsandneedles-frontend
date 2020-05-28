@@ -1,11 +1,9 @@
 import React from "react";
 import axois from "axios";
 
-import "./PurchaseForm.css";
-
-import { useForm } from "../../shared/hooks/form-hooks";
 import Input from "../../shared/FormElements/Input";
 import Button from "../../shared/FormElements/Button";
+
 import {
   VALIDATOR_REQUIRE,
   VALIDATOR_EMAIL,
@@ -13,7 +11,9 @@ import {
   VALIDATOR_MAXLENGTH,
   VALIDATOR_MINLENGTH,
 } from "../../shared/util/validators";
-// import ErrorModal from "../../shared/modals/ErrorModal";
+import { useForm } from "../../shared/hooks/form-hooks";
+
+import "./PurchaseForm.css";
 
 function PurchaseForm(props) {
   const pid = props.id;

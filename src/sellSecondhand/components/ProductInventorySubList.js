@@ -1,14 +1,15 @@
 import React from "react";
-import Card from "../../shared/UIElements/Card";
+
 import { Accordion } from "react-accessible-accordion";
 
-import "./accordion.css";
-// import Button from "../../shared/FormElements/Button";
-// import { AuthContext } from "../../shared/context/auth-context";
+import Card from "../../shared/UIElements/Card";
 import ProductInventorySubListItem from "./ProductInventorySubListItem";
-// import { Link } from "react-router-dom";
+
+import "./accordion.css";
+
 // props
 // list
+
 function ProductInventorySubList(props) {
   let main;
 

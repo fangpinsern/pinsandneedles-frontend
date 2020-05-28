@@ -1,11 +1,12 @@
 import React from "react";
 
-import "./Home.css";
 import HomeCard from "../components/HomeCard";
-
 import image1 from "../../images/KESunset1.jpg";
 import image2 from "../../images/KESunset2.jpg";
 import image3 from "../../images/writeCheatSheet2.jpg";
+
+import "./Home.css";
+
 function Home() {
   return (
     <React.Fragment>
@@ -17,16 +18,16 @@ function Home() {
           <HomeCard
             src={image1}
             title="Latest Projects"
-            description="If you are interested, you could have a look at what I am working on recently!"
+            description="Have a look at what I am working on recently!"
             link="/projects"
           />
         </div>
         <div className="homeMainCenter">
           <HomeCard
             src={image2}
-            title="Entertainment"
-            description="If you are interested, you could have a look at the goofy things I do for fun!"
-            link="https://www.youtube.com/"
+            title="Garage Sale"
+            description="One man's trash is another man's treasure"
+            link="/products"
             download={false}
           />
         </div>
@@ -34,7 +35,7 @@ function Home() {
           <HomeCard
             src={image3}
             title="Resume"
-            description="If you are interested, please hire me"
+            description="Please hire me"
             link={image1}
             download={true}
             newTab={"true"}

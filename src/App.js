@@ -1,5 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
-import "./App.css";
+import React, { useState, useCallback, useEffect, Suspense } from "react";
 
 import {
   BrowserRouter as Router,
@@ -9,20 +8,62 @@ import {
 } from "react-router-dom";
 
 import Home from "./home/pages/Home";
-import About from "./about/pages/About";
-import Contact from "./contact/pages/Contact";
 import MainNavigation from "./shared/Navigation/MainNavigation";
-import ProjectMainPage from "./projects/pages/ProjectMainPage";
-import ProjectSubPage from "./projects/pages/ProjectSubPage";
-import ProjectInputPage from "./projects/pages/ProjectInputPage";
-import ProjectUpdatePage from "./projects/pages/ProjectUpdatePage";
-import LoginPage from "./login/pages/LoginPage";
+import LoadingSpinner from "./shared/modals/LoadingSpinner";
+
 import { AuthContext } from "./shared/context/auth-context";
-import ProductsMainPage from "./sellSecondhand/pages/ProductsMainPage";
-import ProductsSubPage from "./sellSecondhand/pages/ProductsSubPage";
-import ProductsPurchasePage from "./sellSecondhand/pages/ProductsPurchasePage";
-import ProductsInputPage from "./sellSecondhand/pages/ProductsInputPage";
-import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
+
+import "./App.css";
+
+// In case you do not want to lazy load
+// import About from "./about/pages/About";
+// import Contact from "./contact/pages/Contact";
+// import ProjectMainPage from "./projects/pages/ProjectMainPage";
+// import ProjectSubPage from "./projects/pages/ProjectSubPage";
+// import ProjectInputPage from "./projects/pages/ProjectInputPage";
+// import ProjectUpdatePage from "./projects/pages/ProjectUpdatePage";
+// import LoginPage from "./login/pages/LoginPage";
+// import ProductsMainPage from "./sellSecondhand/pages/ProductsMainPage";
+// import ProductsSubPage from "./sellSecondhand/pages/ProductsSubPage";
+// import ProductsPurchasePage from "./sellSecondhand/pages/ProductsPurchasePage";
+// import ProductsInputPage from "./sellSecondhand/pages/ProductsInputPage";
+// import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
+
+// Lazy loading
+const About = React.lazy(() => import("./about/pages/About"));
+const Contact = React.lazy(() => import("./contact/pages/Contact"));
+const LoginPage = React.lazy(() => import("./login/pages/LoginPage"));
+
+// Projects
+const ProjectMainPage = React.lazy(() =>
+  import("./projects/pages/ProjectMainPage")
+);
+const ProjectSubPage = React.lazy(() =>
+  import("./projects/pages/ProjectSubPage")
+);
+const ProjectInputPage = React.lazy(() =>
+  import("./projects/pages/ProjectInputPage")
+);
+const ProjectUpdatePage = React.lazy(() =>
+  import("./projects/pages/ProjectUpdatePage")
+);
+
+// Products
+const ProductsMainPage = React.lazy(() =>
+  import("./sellSecondhand/pages/ProductsMainPage")
+);
+const ProductsSubPage = React.lazy(() =>
+  import("./sellSecondhand/pages/ProductsSubPage")
+);
+const ProductsPurchasePage = React.lazy(() =>
+  import("./sellSecondhand/pages/ProductsPurchasePage")
+);
+const ProductsInputPage = React.lazy(() =>
+  import("./sellSecondhand/pages/ProductsInputPage")
+);
+const ProductsInventory = React.lazy(() =>
+  import("./sellSecondhand/pages/ProductsInventory")
+);
 
 let logoutTimer;
 
@@ -79,94 +120,90 @@ function App() {
   let routes;
   if (token) {
     routes = (
-      <main>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/about" exact>
-            <About />
-          </Route>
-          <Route path="/contact" exact>
-            <Contact />
-          </Route>
-          <Route path="/projects" exact>
-            <ProjectMainPage />
-          </Route>
-          <Route path="/projects/newinput" exact>
-            <ProjectInputPage />
-          </Route>
-          <Route path="/projects/update/:pid" exact>
-            <ProjectUpdatePage />
-          </Route>
-          <Route path="/projects/:pid" exact>
-            <ProjectSubPage />
-          </Route>
-          <Route path="/products" exact>
-            <ProductsMainPage />
-          </Route>
-          <Route path="/products/purchase/:pid" exact>
-            <ProductsPurchasePage />
-          </Route>
-          <Route path="/products/newinput" exact>
-            <ProductsInputPage />
-          </Route>
-          <Route path="/products/inventory" exact>
-            <ProductsInventory />
-          </Route>
-          <Route path="/products/:pid" exact>
-            <ProductsSubPage />
-          </Route>
-          <Redirect to="/" />
-        </Switch>
-      </main>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/about" exact>
+          <About />
+        </Route>
+        <Route path="/contact" exact>
+          <Contact />
+        </Route>
+        <Route path="/projects" exact>
+          <ProjectMainPage />
+        </Route>
+        <Route path="/projects/newinput" exact>
+          <ProjectInputPage />
+        </Route>
+        <Route path="/projects/update/:pid" exact>
+          <ProjectUpdatePage />
+        </Route>
+        <Route path="/projects/:pid" exact>
+          <ProjectSubPage />
+        </Route>
+        <Route path="/products" exact>
+          <ProductsMainPage />
+        </Route>
+        <Route path="/products/purchase/:pid" exact>
+          <ProductsPurchasePage />
+        </Route>
+        <Route path="/products/newinput" exact>
+          <ProductsInputPage />
+        </Route>
+        <Route path="/products/inventory" exact>
+          <ProductsInventory />
+        </Route>
+        <Route path="/products/:pid" exact>
+          <ProductsSubPage />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
     );
   } else {
     routes = (
-      <main>
-        <Switch>
-          <Route path="/" exact>
-            <Home />
-          </Route>
-          <Route path="/about" exact>
-            <About />
-          </Route>
-          <Route path="/contact" exact>
-            <Contact />
-          </Route>
-          <Route path="/projects" exact>
-            <ProjectMainPage />
-          </Route>
-          <Route path="/projects/newinput" exact>
-            <LoginPage />
-          </Route>
-          <Route path="/projects/update/:pid" exact>
-            <LoginPage />
-          </Route>
-          <Route path="/projects/:pid" exact>
-            <ProjectSubPage />
-          </Route>
-          <Route path="/login" exact>
-            <LoginPage />
-          </Route>
-          <Route path="/products" exact>
-            <ProductsMainPage />
-          </Route>
-          <Route path="/products/purchase/:pid" exact>
-            <ProductsPurchasePage />
-          </Route>
-          <Route path="/products/newinput" exact>
-            <LoginPage/>
-          </Route>
-          <Route path="/products/inventory" exact>
-            <LoginPage />
-          </Route>
-          <Route path="/products/:pid" exact>
-            <ProductsSubPage />
-          </Route>
-          <Redirect to="/login" />
-        </Switch>
-      </main>
+      <Switch>
+        <Route path="/" exact>
+          <Home />
+        </Route>
+        <Route path="/about" exact>
+          <About />
+        </Route>
+        <Route path="/contact" exact>
+          <Contact />
+        </Route>
+        <Route path="/projects" exact>
+          <ProjectMainPage />
+        </Route>
+        <Route path="/projects/newinput" exact>
+          <LoginPage />
+        </Route>
+        <Route path="/projects/update/:pid" exact>
+          <LoginPage />
+        </Route>
+        <Route path="/projects/:pid" exact>
+          <ProjectSubPage />
+        </Route>
+        <Route path="/login" exact>
+          <LoginPage />
+        </Route>
+        <Route path="/products" exact>
+          <ProductsMainPage />
+        </Route>
+        <Route path="/products/purchase/:pid" exact>
+          <ProductsPurchasePage />
+        </Route>
+        <Route path="/products/newinput" exact>
+          <LoginPage />
+        </Route>
+        <Route path="/products/inventory" exact>
+          <LoginPage />
+        </Route>
+        <Route path="/products/:pid" exact>
+          <ProductsSubPage />
+        </Route>
+        <Redirect to="/login" />
+      </Switch>
     );
   }
 
@@ -182,7 +219,17 @@ function App() {
     >
       <Router>
         <MainNavigation />
-        {routes}
+        <main>
+          <Suspense
+            fallback={
+              <div className="center">
+                <LoadingSpinner />
+              </div>
+            }
+          >
+            {routes}
+          </Suspense>
+        </main>
       </Router>
     </AuthContext.Provider>
   );

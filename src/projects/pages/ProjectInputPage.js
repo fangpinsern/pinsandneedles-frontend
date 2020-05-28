@@ -1,14 +1,14 @@
 import React, { useState, useContext } from "react";
+
 import Input from "../../shared/FormElements/Input";
-import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
-import { useForm } from "../../shared/hooks/form-hooks";
 import Button from "../../shared/FormElements/Button";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
+
+import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
+import { useForm } from "../../shared/hooks/form-hooks";
 import { Redirect } from "react-router-dom";
 import { AuthContext } from "../../shared/context/auth-context";
-
-// import { DumbProj } from "../data/projectData";
 
 function ProjectInputPage(props) {
   const auth = useContext(AuthContext);
@@ -42,61 +42,31 @@ function ProjectInputPage(props) {
   const [submitted, setSubmitted] = useState(false);
   const [resId, setResId] = useState("");
 
-  const parseFullOutline = (words) => {
-    // words bettwwn /p/ and /.p/ is string
-    // words between /c/ and /.c/ is code
-    const change = words.split("\n");
-    let count = 0;
-    const final = change.map((something) => {
-      var typeCode = something.substring(0, 3);
-      console.log(typeCode);
-      let value;
-      let type;
-      if (typeCode === "/p/") {
-        // its of type string
-        value = something.match("/p/(.*)/.p/");
-        type = "string";
-      } else if (typeCode === "/c/") {
-        // its of type code
-        value = something.match("/c/(.*)/.c/");
-        type = "code";
-      } else {
-        // wrong formatting
-        value = "";
-        // type = "";
-      }
-      count = count + 1;
-      return { key: String(count), type: type, value: value[1], raw: value[0] };
-    });
-    console.log(final);
-    return final;
-  };
-
   const formSubmitHandler = async (event) => {
     event.preventDefault();
     const title = formState.inputs.title.value;
     const imageUrl = formState.inputs.imageUrl.value;
     const description = formState.inputs.description.value;
-    const fullOutlineRaw = document.getElementById("fullProjectOutline").value;
+    const fullOutlineRaw = formState.inputs.fullProjectOutline.value;
 
-    const fullOutlineParsed = parseFullOutline(fullOutlineRaw);
     try {
       setIsLoading(true);
-      const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/projects", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Authorization": "Bearer " + auth.token,
-        },
-        body: JSON.stringify({
-          title: title,
-          description: description,
-          imageUrl: imageUrl,
-          fullProjectOutline: fullOutlineParsed,
-        }),
-      });
-
-      // console.log(response.body);
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/api/projects",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: "Bearer " + auth.token,
+          },
+          body: JSON.stringify({
+            title: title,
+            description: description,
+            imageUrl: imageUrl,
+            fullProjectOutline: fullOutlineRaw,
+          }),
+        }
+      );
 
       const responseData = await response.json();
       if (!response.ok) {
@@ -111,8 +81,6 @@ function ProjectInputPage(props) {
       setIsLoading(false);
       setError(err.msg || "Something went wrong, please try again");
     }
-
-    // DumbProj.push(finalObj);
   };
 
   const errorHandler = () => {
