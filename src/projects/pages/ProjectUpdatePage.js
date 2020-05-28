@@ -62,7 +62,9 @@ function ProjectUpdatePage(props) {
     const sendReq = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch("http://localhost:3002/api/projects/" + pid);
+        const res = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "/api/projects/" + pid
+        );
         const resData = await res.json();
         if (!res.ok) {
           throw new Error(resData.msg);
@@ -156,7 +158,7 @@ function ProjectUpdatePage(props) {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://localhost:3002/api/projects/" + pid,
+        process.env.REACT_APP_BACKEND_URL + "/api/projects/" + pid,
         {
           method: "PATCH",
           headers: {

@@ -15,7 +15,9 @@ function ProductsMainPage() {
     const sendReq = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch("http://localhost:3002/api/products");
+        const res = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "/api/products"
+        );
         const resData = await res.json();
         if (!res.ok) {
           throw new Error(resData.msg);

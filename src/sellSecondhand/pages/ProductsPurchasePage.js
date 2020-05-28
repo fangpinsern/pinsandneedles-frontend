@@ -21,7 +21,9 @@ function ProductsPurchasePage() {
     const sendReq = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch("http://localhost:3002/api/products/" + pid);
+        const res = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "/api/products/" + pid
+        );
         const resData = await res.json();
         if (!res.ok) {
           throw new Error(resData.msg);
@@ -43,7 +45,7 @@ function ProductsPurchasePage() {
   const successHandler = async (buyerInfo) => {
     try {
       const res = await fetch(
-        "http://localhost:3002/api/products/purchase/" + pid,
+        process.env.REACT_APP_BACKEND_URL + "/api/products/purchase/" + pid,
         {
           method: "PATCH",
           headers: { "Content-Type": "application/json" },
@@ -85,7 +87,7 @@ function ProductsPurchasePage() {
           <Card className="contactInfo">
             <h1>{product.name}</h1>
             <img
-              src={"http://localhost:3002/" + product.imageUrl}
+              src={process.env.REACT_APP_BACKEND_URL + product.imageUrl}
               alt={product.name}
             />
             <p>{product.description}</p>
@@ -126,7 +128,7 @@ function ProductsPurchasePage() {
             <Card className="contactInfo">
               <h1>{product.name}</h1>
               <img
-                src={"http://localhost:3002/" + product.imageUrl}
+                src={process.env.REACT_APP_BACKEND_URL + "/" + product.imageUrl}
                 alt={product.name}
               />
               <p>{product.description}</p>
@@ -144,7 +146,8 @@ function ProductsPurchasePage() {
           </div>
         </div>
       ) : (
-        !success && !isLoading && (
+        !success &&
+        !isLoading && (
           <h3>
             Product is Reserved or Sold! Please have a look at our other items
           </h3>

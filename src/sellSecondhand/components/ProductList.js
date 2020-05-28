@@ -14,7 +14,7 @@ function ProductList(props) {
             name={product.name}
             description={product.description}
             price={product.price}
-            src={"http://localhost:3002/"+product.imageUrl}
+            src={process.env.REACT_APP_BACKEND_URL + "/" + product.imageUrl}
             available={product.status}
           />
         );

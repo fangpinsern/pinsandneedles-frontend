@@ -22,7 +22,7 @@ function ProductInventorySubListItem(props) {
     try {
       setIsLoading(true);
       const response = await fetch(
-        "http://localhost:3002/api/products/sold/" + pid,
+        process.env.REACT_APP_BACKEND_URL + "/api/products/sold/" + pid,
         {
           method: "PATCH",
           headers: {

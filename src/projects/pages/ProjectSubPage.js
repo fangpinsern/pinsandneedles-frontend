@@ -8,7 +8,7 @@ import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 function ProjectSubPage(props) {
   const pid = useParams().pid;
-  const api = "http://localhost:3002/api/projects/" + pid;
+  const api = process.env.REACT_APP_BACKEND_URL + "/api/projects/" + pid;
   // console.log(api);
 
   const [isLoading, setIsLoading] = useState(false);

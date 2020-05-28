@@ -16,7 +16,7 @@ function ProjectMainPage() {
     const sendReq = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch("http://localhost:3002/api/projects");
+        const res = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/projects");
         const resData = await res.json();
         if (!res.ok) {
           throw new Error(resData.msg);

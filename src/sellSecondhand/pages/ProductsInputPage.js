@@ -77,13 +77,16 @@ function ProductsInputPage() {
       formData.append("price", formState.inputs.price.value);
       formData.append("status", "avail");
       formData.append("image", formState.inputs.image.value);
-      const response = await fetch("http://localhost:3002/api/products", {
-        method: "POST",
-        body: formData,
-        headers: {
-          Authorization: "Bearer " + auth.token,
-        },
-      });
+      const response = await fetch(
+        process.env.REACT_APP_BACKEND_URL + "/api/products",
+        {
+          method: "POST",
+          body: formData,
+          headers: {
+            Authorization: "Bearer " + auth.token,
+          },
+        }
+      );
 
       const responseData = await response.json();
       if (!response.ok) {

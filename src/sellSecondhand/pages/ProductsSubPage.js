@@ -19,7 +19,9 @@ function ProductsSubPage() {
     const sendReq = async () => {
       setIsLoading(true);
       try {
-        const res = await fetch("http://localhost:3002/api/products/" + pid);
+        const res = await fetch(
+          process.env.REACT_APP_BACKEND_URL + "/api/products/" + pid
+        );
         const resData = await res.json();
         if (!res.ok) {
           throw new Error(resData.msg);
@@ -53,6 +55,7 @@ function ProductsSubPage() {
   //     </div>
   //   );
   // }
+  !isLoading && productData && console.log(process.env.REACT_APP_BACKEND_URL + productData.imageUrl)
   return (
     <React.Fragment>
       {isLoading && (
@@ -69,7 +72,7 @@ function ProductsSubPage() {
           <div className="productsSubPageMain">
             <div className="productsSubPageMain-left">
               <img
-                src={"http://localhost:3002/" + productData.imageUrl}
+                src={process.env.REACT_APP_BACKEND_URL + "/" + productData.imageUrl}
                 alt={productData.name}
               />
             </div>

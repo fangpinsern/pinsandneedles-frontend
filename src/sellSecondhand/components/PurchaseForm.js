@@ -71,7 +71,7 @@ function PurchaseForm(props) {
 
     axois({
       method: "POST",
-      url: "http://localhost:3002/send",
+      url: process.env.REACT_APP_BACKEND_URL + "/send",
       data: {
         type: "purchase",
         name: name,

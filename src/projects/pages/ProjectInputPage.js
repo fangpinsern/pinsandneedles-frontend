@@ -82,7 +82,7 @@ function ProjectInputPage(props) {
     const fullOutlineParsed = parseFullOutline(fullOutlineRaw);
     try {
       setIsLoading(true);
-      const response = await fetch("http://localhost:3002/api/projects", {
+      const response = await fetch(process.env.REACT_APP_BACKEND_URL + "/api/projects", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
