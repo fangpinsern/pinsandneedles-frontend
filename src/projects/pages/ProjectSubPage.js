@@ -47,7 +47,7 @@ function ProjectSubPage(props) {
           </div>
         )}
         {!isLoading && projectData && (
-          <div>
+          <div className="projectSubPage">
             <div className="projectSubPageHeader">
               <img
                 src={projectData.project.imageUrl}

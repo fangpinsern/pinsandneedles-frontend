@@ -41,25 +41,13 @@ function ProjectUpdatePage(props) {
     false
   );
   const [isLoading, setIsLoading] = useState(false);
-  const [projectData, setProjectData] = useState();
+  // const [projectData, setProjectData] = useState();
   const [error, setError] = useState();
   const [submitted, setSubmitted] = useState(false);
   const [resId, setResId] = useState("");
 
   // get existing project by pid
 
-  const parseOutlineToString = (arr) => {
-    var s = "";
-    const arrLen = arr.length;
-    arr.forEach((element, i) => {
-      if (i >= arrLen - 1) {
-        s = s + element.raw;
-      } else {
-        s = s + element.raw + "\n";
-      }
-    });
-    return s;
-  };
   useEffect(() => {
     const sendReq = async () => {
       setIsLoading(true);
@@ -71,7 +59,7 @@ function ProjectUpdatePage(props) {
         if (!res.ok) {
           throw new Error(resData.msg);
         }
-        setProjectData(resData);
+        // setProjectData(resData);
         // console.log(resData);
         setFormData({
           title: {
@@ -91,7 +79,7 @@ function ProjectUpdatePage(props) {
           },
           fullProjectOutline: {
             type: "string",
-            value: parseOutlineToString(resData.project.fullProjectOutline),
+            value: resData.project.fullProjectOutline,
             isValid: true,
           },
         });
@@ -105,42 +93,6 @@ function ProjectUpdatePage(props) {
     sendReq();
   }, [pid, setFormData]);
 
-  const parseFullOutline = (words) => {
-    // words bettwwn /p/ and /.p/ is string
-    // words between /c/ and /.c/ is code
-    const change = words.split("\n");
-    let count = 0;
-
-    const final = change.map((something) => {
-      var typeCode = something.substring(0, 3);
-      // console.log(typeCode);
-      let value;
-      let type;
-      if (typeCode === "/p/") {
-        // its of type string
-        value = something.match("/p/(.*)/.p/");
-        type = "string";
-      } else if (typeCode === "/c/") {
-        // its of type code
-        value = something.match("/c/(.*)/.c/");
-        type = "code";
-      } else if (typeCode === "/i/") {
-        // this is of type image
-        value = something.match("/i/(.*)/.i/");
-        type = "image";
-        // console.log(value[1]);
-      } else {
-        // wrong formatting
-        value = "";
-        // type = "";
-      }
-      count = count + 1;
-      return { key: String(count), type: type, value: value[1], raw: value[0] };
-    });
-    console.log(projectData);
-    return final;
-  };
-
   const formSubmitHandler = async (event) => {
     event.preventDefault();
     const title = formState.inputs.title.value;
@@ -148,13 +100,11 @@ function ProjectUpdatePage(props) {
     const description = formState.inputs.description.value;
     const fullOutlineRaw = document.getElementById("fullProjectOutline").value;
 
-    const fullOutlineParsed = parseFullOutline(fullOutlineRaw);
-
     const formObj = {
       title: title,
       description: description,
       imageUrl: imageUrl,
-      fullProjectOutline: fullOutlineParsed,
+      fullProjectOutline: fullOutlineRaw,
     };
     console.log(formObj);
     try {

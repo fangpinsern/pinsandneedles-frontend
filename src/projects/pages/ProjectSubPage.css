@@ -5,6 +5,7 @@
     text-align: center;
     color: black;
 }
+
 .projectSubPageHeader img {
     width: 100%;
     height: 20rem;
@@ -12,9 +13,11 @@
 }
 
 .projectSubPageMain {
-    text-align: justify;
     overflow-wrap: break-word;
-    padding: 0 5rem;
+    padding: 0 5%;
+    margin: 0 15%;
+    width: 70%;
+    text-align: justify;
 }
 
 .projectSubPageHeaderError {
