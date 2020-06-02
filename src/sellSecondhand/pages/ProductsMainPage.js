@@ -48,7 +48,8 @@ function ProductsMainPage() {
         <p>Just click on the item you want to see more!</p>
         <p>
           To purchase, click on the "Buy Now" button, fill in your info and I
-          will contact you for payment
+          will contact you for payment.<br />
+          Price includes delivery/mailing
         </p>
       </div>
       {!isLoading && loadedProduct && (
