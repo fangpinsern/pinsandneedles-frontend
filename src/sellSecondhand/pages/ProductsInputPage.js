@@ -53,6 +53,10 @@ function ProductsInputPage() {
   const [submitted, setSubmitted] = useState(false);
   const [resId, setResId] = useState("");
 
+  // const formSubmitHandler1 = (event) => {
+  //   event.preventDefault();
+  //   console.log(formState);
+  // };
   const formSubmitHandler = async (event) => {
     event.preventDefault();
 
@@ -78,7 +82,10 @@ function ProductsInputPage() {
       );
       formData.append("price", formState.inputs.price.value);
       formData.append("status", "avail");
-      formData.append("image", formState.inputs.image.value);
+      for (let key of Object.keys(formState.inputs.image.value.imgCollection)){
+        formData.append("image", formState.inputs.image.value.imgCollection[key]);
+      }
+      
       const response = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/api/products",
         {

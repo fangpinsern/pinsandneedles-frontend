@@ -64,12 +64,14 @@ function ProductsSubPage() {
           </div>
           <div className="productsSubPageMain">
             <div className="productsSubPageMain-left">
-              <img
+              {productData.imageUrl.map((image) => {
+                return <img key={image}
                 src={
-                  process.env.REACT_APP_BACKEND_URL + "/" + productData.imageUrl
+                  process.env.REACT_APP_BACKEND_URL + "/" + image
                 }
                 alt={productData.name}
               />
+              })}
             </div>
             <div className="productsSubPageMain-right">
               {parse(productData.fullProductOutline)}
