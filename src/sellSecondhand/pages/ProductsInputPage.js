@@ -55,7 +55,7 @@ function ProductsInputPage() {
 
   const formSubmitHandler = async (event) => {
     event.preventDefault();
-    // testing something out
+    // testing something out 2
     // const newProduct = {
     //   name: formState.inputs.name.value,
     //   description: formState.inputs.description.value,
