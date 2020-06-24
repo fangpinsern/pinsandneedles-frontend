@@ -106,7 +106,7 @@ function ProjectUpdatePage(props) {
       imageUrl: imageUrl,
       fullProjectOutline: fullOutlineRaw,
     };
-    console.log(formObj);
+    // console.log(formObj);
     try {
       setIsLoading(true);
       const response = await fetch(

@@ -28,11 +28,15 @@ import "./App.css";
 // import ProductsPurchasePage from "./sellSecondhand/pages/ProductsPurchasePage";
 // import ProductsInputPage from "./sellSecondhand/pages/ProductsInputPage";
 // import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
-
+import SignUpPage from "./login/pages/SignUpPage";
 // Lazy loading
 const About = React.lazy(() => import("./about/pages/About"));
 const Contact = React.lazy(() => import("./contact/pages/Contact"));
+
+// Login
 const LoginPage = React.lazy(() => import("./login/pages/LoginPage"));
+// const SignUpPage = React.lazy(() => import("./login/pages/SignUpPage"));
+const UpdateInfoPage = React.lazy(() => import("./login/pages/UpdateInfoPage"));
 
 // Projects
 const ProjectMainPage = React.lazy(() =>
@@ -130,6 +134,12 @@ function App() {
         <Route path="/contact" exact>
           <Contact />
         </Route>
+        <Route path="/updateinfo" exact>
+          <UpdateInfoPage />
+        </Route>
+        <Route path="/signup" exact>
+          <SignUpPage />
+        </Route>
         <Route path="/projects" exact>
           <ProjectMainPage />
         </Route>
@@ -174,6 +184,12 @@ function App() {
         </Route>
         <Route path="/projects" exact>
           <ProjectMainPage />
+        </Route>
+        <Route path="/updateinfo" exact>
+          <LoginPage />
+        </Route>
+        <Route path="/signup" exact>
+          <LoginPage />
         </Route>
         <Route path="/projects/newinput" exact>
           <LoginPage />
