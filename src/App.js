@@ -29,6 +29,7 @@ import "./App.css";
 // import ProductsInputPage from "./sellSecondhand/pages/ProductsInputPage";
 // import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
 import SignUpPage from "./login/pages/SignUpPage";
+import Footer from "./shared/Footer/Footer";
 // Lazy loading
 const About = React.lazy(() => import("./about/pages/About"));
 const Contact = React.lazy(() => import("./contact/pages/Contact"));
@@ -98,6 +99,7 @@ function App() {
     setToken(null);
     setTokenExpireDate(null);
     setUserId(null);
+    localStorage.removeItem("userData");
   }, []);
 
   useEffect(() => {
@@ -245,6 +247,7 @@ function App() {
           >
             {routes}
           </Suspense>
+          <Footer />
         </main>
       </Router>
     </AuthContext.Provider>

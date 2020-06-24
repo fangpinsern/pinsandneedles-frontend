@@ -153,8 +153,8 @@ function UpdateInfoPage(props) {
       <ErrorModal error={error} onClear={errorHandler} />
       {isLoading && <LoadingSpinner overlay />}
       {!isLoading && (
-        <div className="signupForm">
-          <Card className="signupCard">
+        <div className="updateForm">
+          <Card className="updateCard">
             <form onSubmit={formSubmitHandler}>
               <Input
                 id="username"

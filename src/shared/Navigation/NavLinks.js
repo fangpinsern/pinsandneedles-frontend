@@ -43,7 +43,7 @@ function NavLinks(props) {
             <button className="dropbtn">Products</button>
             <div className="dropdown-content">
               <NavLink to="/products">Products</NavLink>
-              <NavLink to="/projects/inventory">Inventory</NavLink>
+              <NavLink to="/products/inventory">Inventory</NavLink>
               <NavLink to="/products/update">Update Products</NavLink>
             </div>
           </div>

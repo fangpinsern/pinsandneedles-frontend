@@ -1,5 +1,6 @@
 .contactUs {
   margin-bottom: 0px;
+  overflow: auto;
 }
 
 .contactHeader {
@@ -18,7 +19,7 @@
   float: none;
   margin-bottom: 50px;
   text-align: center;
-  justify-content: center
+  justify-content: center;
 }
 
 .contactUs .contactUsLeft a:link,
@@ -29,7 +30,7 @@
 
 .contactUs .contactUsLeft a:hover,
 .contactUs .contactUsLeft a:active {
-  color: #D3D3D3;
+  color: #d3d3d3;
 }
 
 .contactUs .contactUsRight {
@@ -57,7 +58,6 @@
     width: 50%;
     margin-bottom: 50px;
     text-align: center;
-    
   }
 
   .contactUs .contactUsRight {
