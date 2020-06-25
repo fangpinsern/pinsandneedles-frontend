@@ -191,7 +191,7 @@ function App() {
           <LoginPage />
         </Route>
         <Route path="/signup" exact>
-          <LoginPage />
+          <SignUpPage />
         </Route>
         <Route path="/projects/newinput" exact>
           <LoginPage />

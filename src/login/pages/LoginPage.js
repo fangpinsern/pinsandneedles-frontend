@@ -69,6 +69,7 @@ function LoginPage() {
       {!isLoading && (
         <div className="loginForm">
           <Card className="loginCard">
+            <h2>Login</h2>
             <form onSubmit={formSubmitHandler}>
               <Input
                 id="username"

@@ -22,9 +22,16 @@ function Footer(props) {
       <div className="footerMainCenter">
         <h4>Others</h4>
         <ul>
-          <li>
-            <NavLink to="/login">Sign In</NavLink>
-          </li>
+          {!auth.isLoggedIn && (
+            <li>
+              <NavLink to="/login">Sign In</NavLink>
+            </li>
+          )}
+          {!auth.isLoggedIn && (
+            <li>
+              <NavLink to="/signup">Sign Up</NavLink>
+            </li>
+          )}
           {auth.isLoggedIn && (
             <li>
               <NavLink to="/updateinfo">Update Info</NavLink>
