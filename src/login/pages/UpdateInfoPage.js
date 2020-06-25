@@ -156,6 +156,7 @@ function UpdateInfoPage(props) {
         <div className="updateForm">
           <Card className="updateCard">
             <form onSubmit={formSubmitHandler}>
+              <h2>Update Information</h2>
               <Input
                 id="username"
                 label="Username"

@@ -30,6 +30,7 @@ import "./App.css";
 // import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
 import SignUpPage from "./login/pages/SignUpPage";
 import Footer from "./shared/Footer/Footer";
+import UsersMainPage from "./users/pages/UsersMainPage";
 // Lazy loading
 const About = React.lazy(() => import("./about/pages/About"));
 const Contact = React.lazy(() => import("./contact/pages/Contact"));
@@ -142,6 +143,9 @@ function App() {
         <Route path="/signup" exact>
           <SignUpPage />
         </Route>
+        <Route path="/users" exact>
+          <UsersMainPage />
+        </Route>
         <Route path="/projects" exact>
           <ProjectMainPage />
         </Route>
@@ -192,6 +196,9 @@ function App() {
         </Route>
         <Route path="/signup" exact>
           <SignUpPage />
+        </Route>
+        <Route path="/users" exact>
+          <LoginPage />
         </Route>
         <Route path="/projects/newinput" exact>
           <LoginPage />
