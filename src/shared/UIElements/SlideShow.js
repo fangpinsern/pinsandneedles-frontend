@@ -51,7 +51,7 @@ function SlideShow(props) {
   const [slideIndex, setSlideIndex] = useState(0);
   const [image, setImage] = useState(imgCollection[slideIndex]);
 
-  console.log(slideIndex);
+  //   console.log(slideIndex);
   function plusSlides(n) {
     let a = slideIndex + n;
 

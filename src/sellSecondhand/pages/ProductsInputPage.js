@@ -26,11 +26,6 @@ function ProductsInputPage() {
       value: "",
       isValid: false,
     },
-    imageUrl: {
-      type: "string",
-      value: "",
-      isValid: false,
-    },
     image: {
       type: "image",
       value: null,
@@ -71,7 +66,6 @@ function ProductsInputPage() {
       const formData = new FormData();
       formData.append("name", formState.inputs.name.value);
       formData.append("description", formState.inputs.description.value);
-      formData.append("imageUrl", formState.inputs.imageUrl.value);
       formData.append(
         "fullProductOutline",
         formState.inputs.fullProductOutline.value
@@ -145,18 +139,6 @@ function ProductsInputPage() {
           initialValid={formState.inputs.name.isValid}
         />
         <MultipleImageUpload id="image" onInput={inputHandler} />
-        <Input
-          id="imageUrl"
-          label="Image URL"
-          onInput={inputHandler}
-          validators={[VALIDATOR_REQUIRE()]}
-          element="input"
-          type="text"
-          placeholder="Image URL"
-          errorText="Please enter a valid URL"
-          initialValue={formState.inputs.imageUrl.value}
-          initialValid={formState.inputs.imageUrl.isValid}
-        />
         <Input
           id="description"
           label="Description"

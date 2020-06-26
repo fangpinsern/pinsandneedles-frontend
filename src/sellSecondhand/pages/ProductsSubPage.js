@@ -28,7 +28,7 @@ function ProductsSubPage() {
           throw new Error(resData.msg);
         }
         setProductData(resData.product);
-        console.log(resData);
+        // console.log(resData);
         setIsLoading(false);
       } catch (err) {
         console.log(err);
@@ -47,9 +47,9 @@ function ProductsSubPage() {
     );
   }
 
-  !isLoading &&
-    productData &&
-    console.log(process.env.REACT_APP_BACKEND_URL + productData.imageUrl);
+  // !isLoading &&
+  //   productData &&
+  //   console.log(process.env.REACT_APP_BACKEND_URL + productData.imageUrl);
   return (
     <React.Fragment>
       {isLoading && (
