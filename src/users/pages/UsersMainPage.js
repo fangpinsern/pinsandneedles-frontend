@@ -30,7 +30,7 @@ function UsersMainPage() {
           throw new Error(resData.msg);
         }
         setLoadedUsers(resData);
-        console.log(resData);
+        // console.log(resData);
         setIsLoading(false);
       } catch (err) {
         setIsLoading(false);

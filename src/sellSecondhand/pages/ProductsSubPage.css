@@ -1,75 +1,74 @@
-.productsSubPageHeader{
-    margin-left: auto;
-    margin-right: auto;
-    position: relative;
-    text-align: center;
-    color: black;
+.productsSubPageHeader {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  color: black;
 }
 .productsSubPageHeader img {
-    width: 100%;
-    height: 20rem;
-    object-fit: cover;
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
 }
 
 .productsSubPageMain {
-    text-align: justify;
-    overflow-wrap: break-word;
-    padding: 0 5rem;
+  text-align: justify;
+  overflow: auto;
+  overflow-wrap: break-word;
+  padding: 0 5rem;
 }
 
 .productsSubPageMain-left {
-    float: none;
-    text-align: justify;
-    overflow-wrap: break-word;
-    margin: 0 1%;
+  float: none;
+  text-align: justify;
+  overflow-wrap: break-word;
+  margin: 0 1%;
 }
 
 .productsSubPageMain-left img {
-    width: 100%;
+  width: 100%;
 }
 
 .productsSubPageMain-right {
-    float: none;
-    text-align: justify;
-    overflow-wrap: break-word;
-    margin: 0 1%;
+  float: none;
+  text-align: justify;
+  overflow-wrap: break-word;
+  margin: 0 1%;
 }
 
 .productsSubPageHeaderError {
-    text-align: center;
-    background-color:darkorange;
-    margin: 3rem;
-    padding: 3rem;
-    margin-top: 5rem;
+  text-align: center;
+  background-color: darkorange;
+  margin: 3rem;
+  padding: 3rem;
+  margin-top: 5rem;
 }
 
 .productsSubPageMain-code {
-    text-align: justify;
-    padding: 1rem;
-    background-color: lightgray;
-    font-family: "Lucida Console", Courier, monospace;
+  text-align: justify;
+  padding: 1rem;
+  background-color: lightgray;
+  font-family: "Lucida Console", Courier, monospace;
 }
 
 @media (min-width: 768px) {
-  
-    .productsSubPageMain-left {
-        float: left;
-        width: 48%;
-        text-align: justify;
-        overflow-wrap: break-word;
-        margin: 0 1%;
-    }
-    
-    .productsSubPageMain-left img {
-        width: 100%;
-    }
-    
-    .productsSubPageMain-right {
-        float: right;
-        width: 48%;
-        text-align: justify;
-        overflow-wrap: break-word;
-        margin: 0 1%;
-    }
+  .productsSubPageMain-left {
+    float: left;
+    width: 48%;
+    text-align: justify;
+    overflow-wrap: break-word;
+    margin: 0 1%;
   }
-  
+
+  .productsSubPageMain-left img {
+    width: 100%;
+  }
+
+  .productsSubPageMain-right {
+    float: right;
+    width: 48%;
+    text-align: justify;
+    overflow-wrap: break-word;
+    margin: 0 1%;
+  }
+}

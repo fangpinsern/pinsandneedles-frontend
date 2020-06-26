@@ -81,10 +81,12 @@ function ProductsPurchasePage() {
       {!success && !isLoading && product && product.status === "avail" ? (
         <div className="purchasePage">
           <div className="purchasePageLeft">
-            <Card className="contactInfo">
+            <Card className="purchasePageInfo">
               <h1>{product.name}</h1>
               <img
-                src={process.env.REACT_APP_BACKEND_URL + "/" + product.imageUrl}
+                src={
+                  process.env.REACT_APP_BACKEND_URL + "/" + product.imageUrl[0]
+                }
                 alt={product.name}
               />
               <p>{product.description}</p>

@@ -4,13 +4,14 @@ import { Redirect } from "react-router-dom";
 
 import Input from "../../shared/FormElements/Input";
 import Button from "../../shared/FormElements/Button";
-import ImageUpload from "../../shared/FormElements/ImageUpload";
+// import ImageUpload from "../../shared/FormElements/ImageUpload";
 import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import ErrorModal from "../../shared/modals/ErrorModal";
 
 import { useForm } from "../../shared/hooks/form-hooks";
 import { VALIDATOR_REQUIRE } from "../../shared/util/validators";
 import { AuthContext } from "../../shared/context/auth-context";
+import MultipleImageUpload from "../../shared/FormElements/multipleImageUploads";
 
 function ProductsInputPage() {
   const auth = useContext(AuthContext);
@@ -78,6 +79,12 @@ function ProductsInputPage() {
       formData.append("price", formState.inputs.price.value);
       formData.append("status", "avail");
       formData.append("image", formState.inputs.image.value);
+      for (let key of Object.keys(formState.inputs.image.value.imgCollection)) {
+        formData.append(
+          "image",
+          formState.inputs.image.value.imgCollection[key]
+        );
+      }
       const response = await fetch(
         process.env.REACT_APP_BACKEND_URL + "/api/products",
         {
@@ -137,7 +144,7 @@ function ProductsInputPage() {
           initialValue={formState.inputs.name.value}
           initialValid={formState.inputs.name.isValid}
         />
-        <ImageUpload id="image" onInput={inputHandler} />
+        <MultipleImageUpload id="image" onInput={inputHandler} />
         <Input
           id="imageUrl"
           label="Image URL"

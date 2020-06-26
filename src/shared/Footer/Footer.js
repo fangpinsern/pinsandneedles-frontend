@@ -48,11 +48,13 @@ function Footer(props) {
       </div>
       {/* column 3 */}
       <div className="footerMainRight">
-        <h4>Contact</h4>
+        <NavLink to="/contact">
+          <h4>Contact</h4>
+        </NavLink>
+
         <ul>
-          <li>1234-5678</li>
+          <li>pinsernfang@gmail.com</li>
           <li>Singapore</li>
-          <li>Somewhere</li>
         </ul>
       </div>
       {/* <div className="footer-row"></div> */}

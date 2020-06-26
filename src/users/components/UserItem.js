@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "./UserItem.css";
 import Button from "../../shared/FormElements/Button";
 import { AuthContext } from "../../shared/context/auth-context";
+import ErrorModal from "../../shared/modals/ErrorModal";
+import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 
 // props
 // id
@@ -61,44 +63,56 @@ function UserItem(props) {
     }
   };
 
+  const errorHandler = () => {
+    setError(null);
+  };
+
   return (
-    <li className="userItem">
-      <Card className="userItemCard">
-        <Link to={`/users/${props.id}`}>
-          <div className="userItemInfo">
-            <h2>{props.name}</h2>
-            <p>{props.access}</p>
-          </div>
-        </Link>
-        <div className="accessRightsButton">
-          <p>Access Rights</p>
-          <Button
-            type="button"
-            className="accessButton"
-            onClick={accessModifier}
-            value="friends"
-          >
-            Friends
-          </Button>
-          <Button
-            type="button"
-            className="accessButton"
-            onClick={accessModifier}
-            value="family"
-          >
-            Family
-          </Button>
-          <Button
-            type="button"
-            className="accessButton"
-            onClick={accessModifier}
-            value="admin"
-          >
-            Admin
-          </Button>
+    <React.Fragment>
+      <ErrorModal error={error} onClear={errorHandler} />
+      {isLoading && (
+        <div className="center">
+          <LoadingSpinner asOverlay />
         </div>
-      </Card>
-    </li>
+      )}
+      <li className="userItem">
+        <Card className="userItemCard">
+          <Link to={`/users/${props.id}`}>
+            <div className="userItemInfo">
+              <h2>{props.name}</h2>
+              <p>{props.access}</p>
+            </div>
+          </Link>
+          <div className="accessRightsButton">
+            <p>Access Rights</p>
+            <Button
+              type="button"
+              className="accessButton"
+              onClick={accessModifier}
+              value="friends"
+            >
+              Friends
+            </Button>
+            <Button
+              type="button"
+              className="accessButton"
+              onClick={accessModifier}
+              value="family"
+            >
+              Family
+            </Button>
+            <Button
+              type="button"
+              className="accessButton"
+              onClick={accessModifier}
+              value="admin"
+            >
+              Admin
+            </Button>
+          </div>
+        </Card>
+      </li>
+    </React.Fragment>
   );
 }
 

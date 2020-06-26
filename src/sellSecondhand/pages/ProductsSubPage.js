@@ -7,6 +7,7 @@ import LoadingSpinner from "../../shared/modals/LoadingSpinner";
 import { useParams } from "react-router-dom";
 
 import "./ProductsSubPage.css";
+import SlideShow from "../../shared/UIElements/SlideShow";
 
 function ProductsSubPage() {
   const pid = useParams().pid;
@@ -64,12 +65,15 @@ function ProductsSubPage() {
           </div>
           <div className="productsSubPageMain">
             <div className="productsSubPageMain-left">
-              <img
+              <SlideShow imgCollection={productData.imageUrl} />
+              {/* <img
                 src={
-                  process.env.REACT_APP_BACKEND_URL + "/" + productData.imageUrl
+                  process.env.REACT_APP_BACKEND_URL +
+                  "/" +
+                  productData.imageUrl[0]
                 }
                 alt={productData.name}
-              />
+              /> */}
             </div>
             <div className="productsSubPageMain-right">
               {parse(productData.fullProductOutline)}
