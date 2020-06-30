@@ -47,9 +47,9 @@ function Home() {
             <div className="homeMainLeft">
               <HomeCard
                 src={image1}
-                title="Latest Projects"
-                description="Have a look at what I am working on recently!"
-                link="/projects"
+                title="Adulting 101"
+                description="Adulting for beginners"
+                link="/services/adulting101"
               />
             </div>
           </div>

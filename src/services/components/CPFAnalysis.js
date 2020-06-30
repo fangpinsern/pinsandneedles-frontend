@@ -65,6 +65,7 @@ function CPFAnalysis(props) {
   return (
     <div>
       <h2>CPF. The basics</h2>
+      <hr></hr>
       <p>Total Employee Contribution: ${props.cpfAmount}</p>
       <p>Total Employer Contribution: ${props.employerContributions}</p>
       <p>

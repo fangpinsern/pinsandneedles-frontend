@@ -3,5 +3,11 @@
   padding: 1rem 2rem;
 }
 .incomeCalculatorForm {
-  margin: 5rem 30%;
+  margin: 5rem 3rem;
+}
+
+@media (min-width: 768px) {
+  .incomeCalculatorForm {
+    margin: 5rem 30%;
+  }
 }

@@ -1,9 +1,11 @@
 /* Slideshow container */
 .slideshow-container {
-  max-width: 250px;
+  max-width: 50%;
   width: 100%;
   position: relative;
+  overflow: auto;
   margin: auto;
+  margin-bottom: 5rem;
 }
 
 /* Hide the images by default */

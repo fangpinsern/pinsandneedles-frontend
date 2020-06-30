@@ -19,6 +19,7 @@
 
 .main-navigation__title {
   color: black;
+  margin-left: 2rem;
 }
 
 .main-navigation__title a {

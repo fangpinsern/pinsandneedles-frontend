@@ -25,7 +25,7 @@ function ProjectSubPage(props) {
           throw new Error(resData.msg);
         }
         setProjectData(resData);
-        console.log(resData);
+        // console.log(resData);
         setIsLoading(false);
       } catch (err) {
         console.log(err);

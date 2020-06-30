@@ -1,0 +1,52 @@
+.projectList {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  width: 90%;
+  max-width: 100rem;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.emptyProjectListCard {
+  padding: 2rem;
+}
+
+.projectItem {
+  margin: 1rem;
+  width: calc(32% - 2rem);
+  min-width: 17.5rem;
+}
+
+.projectItemCard {
+  height: 100%;
+}
+
+.projectItemTop {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.projectItemTop img {
+  width: 100%;
+  height: 12rem;
+  object-fit: cover;
+}
+
+.projectItemCard a {
+  text-decoration: none;
+  color: black;
+}
+
+.projectItemInfo {
+  text-align: center;
+  padding: 1rem;
+}
+
+.adultingRow {
+  margin-bottom: 5rem;
+}

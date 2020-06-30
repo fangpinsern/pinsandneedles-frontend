@@ -32,6 +32,7 @@ import SignUpPage from "./login/pages/SignUpPage";
 import Footer from "./shared/Footer/Footer";
 import UsersMainPage from "./users/pages/UsersMainPage";
 import CPFCalculations from "./services/pages/CPFCalculations";
+import Adulting101MainPage from "./services/pages/Adulting101MainPage";
 // Lazy loading
 const About = React.lazy(() => import("./about/pages/About"));
 const Contact = React.lazy(() => import("./contact/pages/Contact"));
@@ -228,7 +229,10 @@ function App() {
         <Route path="/products/:pid" exact>
           <ProductsSubPage />
         </Route>
-        <Route path="/services/incomecalculations" exact>
+        <Route path="/services/adulting101" exact>
+          <Adulting101MainPage />
+        </Route>
+        <Route path="/services/cpfbasics" exact>
           <CPFCalculations />
         </Route>
         <Redirect to="/login" />

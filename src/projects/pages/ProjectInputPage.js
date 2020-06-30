@@ -72,7 +72,7 @@ function ProjectInputPage(props) {
       if (!response.ok) {
         throw new Error(responseData.msg);
       }
-      console.log(responseData);
+      // console.log(responseData);
       setIsLoading(false);
       setResId(responseData.project.id);
       setSubmitted(true);
