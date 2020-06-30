@@ -1,0 +1,13 @@
+.incomeCalculationsMain {
+  margin: 0 30%;
+  margin-bottom: 10rem;
+}
+
+.incomeCalculationsFooter {
+  margin: 0 30%;
+  font-size: xx-small;
+}
+
+.shiftRight {
+  text-align: right;
+}
