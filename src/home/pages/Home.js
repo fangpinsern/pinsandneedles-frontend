@@ -68,10 +68,10 @@ function Home() {
             <div className="homeMainRight">
               <HomeCard
                 src={image3}
-                title="Resume"
-                description="Please hire me"
-                link={resume}
-                download={true}
+                title="Entertainment"
+                description="Get entertained here"
+                link="https://www.youtube.com/channel/UCL14K2mA29uCUKUl7OqUQgA"
+                download={false}
                 newTab={"true"}
               />
             </div>

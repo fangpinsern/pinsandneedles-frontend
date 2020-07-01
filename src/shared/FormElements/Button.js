@@ -28,6 +28,9 @@ const Button = (props) => {
           props.inverse && "button--inverse"
         } ${props.danger && "button--danger"}`}
         href={props.href}
+        target={"_blank" && props.newTab}
+        rel="noopener noreferrer"
+        download={props.download}
       >
         {props.children}
       </a>
