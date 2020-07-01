@@ -108,7 +108,7 @@ function CPFCalculations() {
 
   return (
     <React.Fragment>
-      <div className="homeHeader">
+      <div className="cpfHeader">
         <h1>CPF Information</h1>
         <p>How much do you really need to earn?</p>
         <p>

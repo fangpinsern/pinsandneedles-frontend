@@ -28,11 +28,14 @@ import "./App.css";
 // import ProductsPurchasePage from "./sellSecondhand/pages/ProductsPurchasePage";
 // import ProductsInputPage from "./sellSecondhand/pages/ProductsInputPage";
 // import ProductsInventory from "./sellSecondhand/pages/ProductsInventory";
+// import CPFCalculations from "./services/pages/CPFCalculations";
+// import Adulting101MainPage from "./services/pages/Adulting101MainPage";
+
 import SignUpPage from "./login/pages/SignUpPage";
 import Footer from "./shared/Footer/Footer";
 import UsersMainPage from "./users/pages/UsersMainPage";
-import CPFCalculations from "./services/pages/CPFCalculations";
-import Adulting101MainPage from "./services/pages/Adulting101MainPage";
+import Voting from "./services/pages/Voting";
+
 // Lazy loading
 const About = React.lazy(() => import("./about/pages/About"));
 const Contact = React.lazy(() => import("./contact/pages/Contact"));
@@ -71,6 +74,15 @@ const ProductsInputPage = React.lazy(() =>
 );
 const ProductsInventory = React.lazy(() =>
   import("./sellSecondhand/pages/ProductsInventory")
+);
+
+// Services
+const Adulting101MainPage = React.lazy(() =>
+  import("./services/pages/Adulting101MainPage")
+);
+
+const CPFCalculations = React.lazy(() =>
+  import("./services/pages/CPFCalculations")
 );
 
 let logoutTimer;
@@ -232,8 +244,11 @@ function App() {
         <Route path="/services/adulting101" exact>
           <Adulting101MainPage />
         </Route>
-        <Route path="/services/cpfbasics" exact>
+        <Route path="/services/adulting101/cpfbasics" exact>
           <CPFCalculations />
+        </Route>
+        <Route path="/services/adulting101/votingbasics" exact>
+          <Voting />
         </Route>
         <Redirect to="/login" />
       </Switch>

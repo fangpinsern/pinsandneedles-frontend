@@ -1,0 +1,35 @@
+.votingHeader {
+  background-image: url("../images/electiondepartment.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  color: white;
+  margin-bottom: 2em;
+}
+
+.votingCard {
+  width: 100%;
+  padding: 1rem 2rem;
+}
+.votingForm {
+  margin: 5rem 3rem;
+}
+
+.votingMain {
+  margin: 0 3rem;
+  margin-bottom: 5rem;
+}
+
+@media (min-width: 768px) {
+  .votingMain {
+    margin: 0 30%;
+    margin-bottom: 10rem;
+  }
+  .votingForm {
+    margin: 5rem 30%;
+  }
+}

@@ -12,9 +12,34 @@
   text-align: right;
 }
 
+.cpfHeader {
+  background-image: url("../images/cpflogo.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: 100%;
+  background-position: center 4rem;
+  text-align: center;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  color: white;
+  margin-bottom: 2em;
+}
+
 @media (min-width: 768px) {
   .incomeCalculationsMain {
     margin: 0 30%;
     margin-bottom: 10rem;
+  }
+  .cpfHeader {
+    background-image: url("../images/cpflogo.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: white;
+    margin-bottom: 2em;
   }
 }

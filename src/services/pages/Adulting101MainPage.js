@@ -24,10 +24,16 @@ function Adulting101MainPage() {
       <div className="adultingRow">
         <ul className="projectList">
           <ServicesItem
-            id="cpfbasics"
+            id="adulting101/cpfbasics"
             src="https://www.cpf.gov.sg/Members/_catalogs/masterpage/CPFB/Images/logo-CPF-web.png"
             name="CPF Basics"
             description="CPF introduction for people starting work"
+          />
+          <ServicesItem
+            id="adulting101/votingbasics"
+            src="https://www.straitstimes.com/sites/default/files/styles/article_pictrure_780x520_/public/articles/2020/03/13/ycelexdept130320.jpg?itok=dw6zx_Za&timestamp=1584098331"
+            name="Voting Basics"
+            description="Introduction to voting for first time voters"
           />
         </ul>
       </div>

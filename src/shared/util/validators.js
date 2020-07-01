@@ -9,6 +9,7 @@ const VALIDATOR_TYPE_EMAIL = "EMAIL";
 const VALIDATOR_TYPE_FILE = "FILE";
 const VALIDATOR_TYPE_DATE = "DATE";
 const VALIDATOR_TYPE_NUMBER = "NUMBER";
+const VALIDATOR_TYPE_YESORNO = "YESORNO";
 // const VALIDATOR_TYPE_NUMBER_POSITIVE = 'POSITIVE_NUMBER'
 
 export const VALIDATOR_REQUIRE = () => ({ type: VALIDATOR_TYPE_REQUIRE });
@@ -31,6 +32,11 @@ export const VALIDATOR_DATE = (val) => ({
 });
 export const VALIDATOR_NUMBER = (val) => ({
   type: VALIDATOR_TYPE_NUMBER,
+  val: val,
+});
+
+export const VALIDATOR_YESORNO = (val) => ({
+  type: VALIDATOR_TYPE_YESORNO,
   val: val,
 });
 // export const VALIDATOR_NUMBER_POSITIVE = val => ({type: VALIDATOR_TYPE_NUMBER_POSITIVE, val:val})
@@ -61,6 +67,11 @@ export const validate = (value, validators) => {
     }
     if (validator.type === VALIDATOR_TYPE_NUMBER) {
       isValid = isValid && !isNaN(value) && value >= 0;
+    }
+    if (validator.type === VALIDATOR_TYPE_YESORNO) {
+      isValid =
+        isValid &&
+        (value.toLowerCase() === "yes" || value.toLowerCase() === "no");
     }
   }
   return isValid;
