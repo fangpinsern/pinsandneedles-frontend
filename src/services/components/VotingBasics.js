@@ -36,7 +36,7 @@ function VotingBasics(props) {
       <ul>
         <li>Electorial Division</li>
         <li>Polling station location</li>
-        <li>Time allocated - Due to Covid-19 to prevent cowding</li>
+        <li>Time allocated - Due to Covid-19 to prevent crowding</li>
       </ul>
       <h3>What to do there?</h3>
       <p>

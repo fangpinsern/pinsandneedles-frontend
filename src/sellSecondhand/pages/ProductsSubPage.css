@@ -22,6 +22,7 @@
   float: none;
   text-align: justify;
   overflow-wrap: break-word;
+  width: 100%;
   margin: 0 1%;
 }
 
@@ -55,6 +56,7 @@
   .productsSubPageMain-left {
     float: left;
     width: 48%;
+    /* height: 50rem; */
     text-align: justify;
     overflow-wrap: break-word;
     margin: 0 1%;

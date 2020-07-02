@@ -62,12 +62,3 @@ function About() {
 }
 
 export default About;
-
-{
-  /* <a
-          href={props.link}
-          target={"_blank" && props.newTab}
-          rel="noopener noreferrer"
-          download={props.download}
-        ></a> */
-}

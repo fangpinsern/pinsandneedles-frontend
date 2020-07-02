@@ -4,7 +4,7 @@ import HomeCard from "../components/HomeCard";
 import image1 from "../../images/KESunset1.jpg";
 import image2 from "../../images/KESunset2.jpg";
 import image3 from "../../images/writeCheatSheet2.jpg";
-import resume from "../../images/Pin_Sern_Resume.pdf";
+// import resume from "../../images/Pin_Sern_Resume.pdf";
 
 import "./Home.css";
 

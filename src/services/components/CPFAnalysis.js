@@ -93,7 +93,7 @@ function CPFAnalysis(props) {
         60 &lt; Age &lt; 65: <br /> You - 7.4% <br /> Employer - 9%
       </p>
       <p>
-        Age &lt; 65: <br /> You - 5% <br /> Employer - 7.5%
+        Age &gt; 65: <br /> You - 5% <br /> Employer - 7.5%
       </p>
       <h3>Why have CPF?</h3>
       <p>
@@ -132,7 +132,7 @@ function CPFAnalysis(props) {
         <li>Pay education (OA) - BUT need return one</li>
         <li>Invest (OA SA) - CPF interest not bad though</li>
         <li>Insurance (Medisave) - buy some plan</li>
-        <li>Retirement - compliated... just have at least $60000 by 55</li>
+        <li>Retirement - complicated... just have at least $60000 by 55</li>
       </ul>
       <h3>Die already how?</h3>
       <p>

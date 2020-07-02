@@ -73,22 +73,16 @@ function SlideShow(props) {
         id={image}
         src={process.env.REACT_APP_BACKEND_URL + "/" + image}
       />
-      {/* <div className="mySlides fade">
-        <div className="numbertext">2 / 3</div>
-        <img src="img2.jpg" style="width:100%" />
-        <div className="text">Caption Two</div>
-      </div>
-      <div className="mySlides fade">
-        <div className="numbertext">3 / 3</div>
-        <img src="img3.jpg" style="width:100%" />
-        <div className="text">Caption Three</div>
-      </div> */}
-      <a className="prev" onClick={() => plusSlides(-1)}>
-        &#10094;
-      </a>
-      <a className="next" onClick={() => plusSlides(1)}>
-        &#10095;
-      </a>
+      {imgCollection.length > 1 && (
+        <button className="prev" onClick={() => plusSlides(-1)}>
+          &#10094;
+        </button>
+      )}
+      {imgCollection.length > 1 && (
+        <button className="next" onClick={() => plusSlides(1)}>
+          &#10095;
+        </button>
+      )}
     </div>
   );
 }

@@ -187,6 +187,15 @@ function App() {
         <Route path="/products/:pid" exact>
           <ProductsSubPage />
         </Route>
+        <Route path="/services/adulting101" exact>
+          <Adulting101MainPage />
+        </Route>
+        <Route path="/services/adulting101/cpfbasics" exact>
+          <CPFCalculations />
+        </Route>
+        <Route path="/services/adulting101/votingbasics" exact>
+          <Voting />
+        </Route>
         <Redirect to="/" />
       </Switch>
     );
