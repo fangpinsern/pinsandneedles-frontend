@@ -16,14 +16,14 @@ function Footer(props) {
           <h4>Navigation</h4>
           <ul>
             <li>
+              <NavLink to="/about">About Me</NavLink>
+            </li>
+            <li>
               <NavLink to="/projects">Projects</NavLink>
             </li>
             <li>
               <NavLink to="/products">Products</NavLink>
             </li>
-            {/* <li>
-              <NavLink to="/about">Hire me?</NavLink>
-            </li> */}
             <li>Coming Soon</li>
           </ul>
         </div>
