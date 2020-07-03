@@ -32,12 +32,12 @@ function Footer(props) {
           <h4>Links</h4>
           <ul>
             <li>
-              <NavLink to="https://github.com/fangpinsern">GitHub</NavLink>
+              <a href="https://github.com/fangpinsern">GitHub</a>
             </li>
             <li>
-              <NavLink to="https://www.linkedin.com/in/pin-sern-fang-689539191/">
+              <a href="https://www.linkedin.com/in/pin-sern-fang-689539191/">
                 LinkedIn
-              </NavLink>
+              </a>
             </li>
             {!auth.isLoggedIn && (
               <li>
