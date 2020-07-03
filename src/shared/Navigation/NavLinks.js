@@ -14,9 +14,9 @@ function NavLinks(props) {
           Home
         </NavLink>
       </li>
-      {/* <li>
+      <li>
         <NavLink to="/about">About</NavLink>
-      </li> */}
+      </li>
       <li>
         <div className="dropdown">
           <button className="dropbtn">Services</button>

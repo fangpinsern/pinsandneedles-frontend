@@ -29,8 +29,16 @@ function Footer(props) {
         </div>
         {/* column 2 */}
         <div className="footerMainCenter">
-          <h4>Others</h4>
+          <h4>Links</h4>
           <ul>
+            <li>
+              <NavLink to="https://github.com/fangpinsern">GitHub</NavLink>
+            </li>
+            <li>
+              <NavLink to="https://www.linkedin.com/in/pin-sern-fang-689539191/">
+                LinkedIn
+              </NavLink>
+            </li>
             {!auth.isLoggedIn && (
               <li>
                 <NavLink to="/login">Sign In</NavLink>

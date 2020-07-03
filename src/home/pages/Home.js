@@ -57,9 +57,9 @@ function Home() {
             <div className="homeMainCenter">
               <HomeCard
                 src={image2}
-                title="Garage Sale"
-                description="One man's trash is another man's treasure"
-                link="/products"
+                title="GitHub"
+                description="Projects I have been working on"
+                link="https://github.com/fangpinsern/"
                 download={false}
               />
             </div>
