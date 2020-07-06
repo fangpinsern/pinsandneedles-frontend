@@ -1,0 +1,8 @@
+.todoListMain-left {
+  width: 70%;
+  overflow-wrap: break-word;
+}
+
+.todoListMain-right {
+  width: 30%;
+}

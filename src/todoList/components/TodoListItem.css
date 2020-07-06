@@ -1,0 +1,19 @@
+.todoListItem {
+  list-style: none;
+}
+
+.todoListItemItem {
+  text-align: left;
+  display: flex;
+}
+
+.todoListItemItem-left {
+  width: 70%;
+  margin: auto;
+  padding: 0 1rem;
+}
+
+.todoListItemItem-right {
+  width: 30%;
+  float: right;
+}

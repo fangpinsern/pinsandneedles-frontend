@@ -35,6 +35,7 @@ import SignUpPage from "./login/pages/SignUpPage";
 import Footer from "./shared/Footer/Footer";
 import UsersMainPage from "./users/pages/UsersMainPage";
 import Voting from "./services/pages/Voting";
+import TodoList from "./todoList/pages/TodoList";
 
 // Lazy loading
 const About = React.lazy(() => import("./about/pages/About"));
@@ -258,6 +259,9 @@ function App() {
         </Route>
         <Route path="/services/adulting101/votingbasics" exact>
           <Voting />
+        </Route>
+        <Route path="/services/todolist" exact>
+          <TodoList />
         </Route>
         <Redirect to="/login" />
       </Switch>

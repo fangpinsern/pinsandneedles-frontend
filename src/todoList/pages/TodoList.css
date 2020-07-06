@@ -1,0 +1,44 @@
+.homeHeader {
+  /* background: url("../../images/waterfall.jpg") no-repeat center center fixed; */
+  background-image: url("../../images/waterfall.jpg");
+  background-repeat: no-repeat;
+  /* background-attachment: fixed; */
+  background-size: cover;
+  background-position: center center;
+  text-align: center;
+  padding-top: 150px;
+  padding-bottom: 150px;
+  color: white;
+  margin-bottom: 2em;
+  /* min-width: 100%; */
+  /* min-height: 100%; */
+}
+
+.homeMain {
+  display: block;
+  padding: 1rem;
+  height: auto;
+}
+
+@media (min-width: 768px) {
+  .todoListMain {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin: 0 1rem;
+    overflow: auto;
+  }
+
+  .homeHeader {
+    background-image: url("../../images/waterfall.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    text-align: center;
+    padding-top: 150px;
+    padding-bottom: 150px;
+    color: white;
+    margin-bottom: 2em;
+  }
+}
