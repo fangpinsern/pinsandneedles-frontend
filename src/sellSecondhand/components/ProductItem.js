@@ -27,7 +27,6 @@ function ProductItem(props) {
             <h2>{props.name}</h2>
             <p>{props.description}</p>
             <p>${props.price}</p>
-            <p>{props.available}</p>
           </div>
         </Link>
         <div className="productItemPurchaseButton">

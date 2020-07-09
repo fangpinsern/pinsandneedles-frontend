@@ -50,7 +50,7 @@ function About() {
           />
           <h3>Current Projects:</h3>
           <WhatIKnow
-            done={20}
+            done={40}
             name={
               <a href="https://github.com/fangpinsern/PersonalResumeWebsite">
                 Resume Website Builder
